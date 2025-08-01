@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Figography</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light-page">
+
+  <header>
+    <div class="name"><h1>Figography</h1></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="about-header">
+      <h1>About</h1>
+    </div>
+
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          My name is Remonda, and I am a nature enthusiast. I created <strong>Figography</strong> to showcase the extraordinary world that we live in.
+        </p>
+        <p>
+          The name “Figography” was inspired by the first professional photo I ever took — a fig on the ground during a walk to school with my sister.
+          Each day, we would pass a beautiful fig tree bursting with ripe fruit. Many would fall, and we’d look for the uncracked ones to snack on as we walked.
+        </p>
+        <p>
+          That fig, and that moment, captured the joy and sweetness I find in nature. It became the symbol of my love for photography — especially of plants.
+        </p>
+        <p>
+          I hope this site helps you discover a little sweetness in the world around you, too.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img src="remonda_summer25/remonda.jpg" alt="Remonda smiling" />
+      </div>
+    </div>
+
+    <section class="quote-section">
+  <blockquote>
+    “Look deep into nature, and then you will understand everything better.”
+    <footer>— Albert Einstein</footer>
+  </blockquote>
+</section>
+
+
+    <section class="timeline-section">
+      <h2>My Story</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="year">September 2023</span>
+          <p>Took my first photo — a fig on the sidewalk under a tree I passed every day.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="year">March 2024</span>
+          <p>Started taking plant and landscape photos regularly on walks and trips.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="year">July 2025</span>
+          <p>Created Figography to share my view of the world with others.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="year">Present</span>
+          <p>Continuing to explore nature, improve my craft, and capture joy in everyday life.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+ <script>
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        const item = entry.target;
+        const index = Array.from(timelineItems).indexOf(item);
+        item.style.transitionDelay = `${index * 0.2}s`;
+        item.classList.add('visible');
+        observer.unobserve(item); // Stop watching once it appears
+      }
+    });
+  }, {
+    threshold: 0.5, // Show when at least 50% visible
+  });
+
+  timelineItems.forEach(item => {
+    observer.observe(item);
+  });
+</script>
+
+
+</body>
+</html>

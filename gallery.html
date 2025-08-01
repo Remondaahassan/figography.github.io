@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery | Figography</title>
+
+  <!-- Lightbox2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .gallery a {
+      transition: transform 0.3s ease-in-out;
+    }
+    .gallery a:hover {
+      transform: scale(1.05);
+    }
+    .gallery img {
+      height: 400px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body class="light-page">
+  <header>
+    <div class="name"><h1>Figography</h1></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="about-header">
+    <h1>Gallery</h1>
+  </div>
+
+  <div class="gallery">
+    <!-- Lightbox image links with captions -->
+    <a href="remonda_summer25/fig.jpg" data-lightbox="gallery" data-title="Fig — Photo by Remonda Hassan">
+      <img src="remonda_summer25/fig.jpg" alt="Fig">
+    </a>
+    <a href="remonda_summer25/goose.jpg" data-lightbox="gallery" data-title="Goose — Photo by Remonda Hassan">
+      <img src="remonda_summer25/goose.jpg" alt="Goose">
+    </a>
+    <a href="remonda_summer25/bud.jpg" data-lightbox="gallery" data-title="Bud — Photo by Hend Hassan">
+      <img src="remonda_summer25/bud.jpg" alt="Bud">
+    </a>
+    <a href="remonda_summer25/white_rose.jpg" data-lightbox="gallery" data-title="White Rose — Photo by Hend Hassan">
+      <img src="remonda_summer25/white_rose.jpg" alt="White Rose">
+    </a>
+    <a href="remonda_summer25/eggs.jpg" data-lightbox="gallery" data-title="Eggs — Photo by Remonda Hassan">
+      <img src="remonda_summer25/eggs.jpg" alt="Eggs">
+    </a>
+    <a href="remonda_summer25/tahoe_forest_tall.jpg" data-lightbox="gallery" data-title="Tahoe Forest — Photo by Remonda Hassan">
+      <img src="remonda_summer25/tahoe_forest_tall.jpg" alt="Tahoe Forest">
+    </a>
+    <a href="remonda_summer25/trees_up.jpg" data-lightbox="gallery" data-title="Looking Up Trees — Photo by Remonda Hassan">
+      <img src="remonda_summer25/trees_up.jpg" alt="Trees Up">
+    </a>
+    <a href="remonda_summer25/ggb.jpg" data-lightbox="gallery" data-title="Golden Gate Bridge — Photo by Hend Hassan">
+      <img src="remonda_summer25/ggb.jpg" alt="Golden Gate Bridge">
+    </a>
+    <a href="remonda_summer25/yellow_rose.jpg" data-lightbox="gallery" data-title="Yellow Rose — Photo by Remonda Hassan">
+      <img src="remonda_summer25/yellow_rose.jpg" alt="Yellow Rose">
+    </a>
+    <a href="remonda_summer25/pink_rose.jpg" data-lightbox="gallery" data-title="Pink Rose — Photo by Remonda Hassan">
+      <img src="remonda_summer25/pink_rose.jpg" alt="Pink Rose">
+    </a>
+    <a href="remonda_summer25/zibeba_bw.jpg" data-lightbox="gallery" data-title="Zibeba (B&W) — Photo by Remonda Hassan">
+      <img src="remonda_summer25/zibeba_bw.jpg" alt="Zibeba">
+    </a>
+    <a href="remonda_summer25/sparkly_ocean.jpg" data-lightbox="gallery" data-title="Sparkly Ocean — Photo by Hend Hassan">
+      <img src="remonda_summer25/sparkly_ocean.jpg" alt="Sparkly Ocean">
+    </a>
+    <a href="remonda_summer25/fig_tree.jpg" data-lightbox="gallery" data-title="Fig Tree — Photo by Remonda Hassan">
+      <img src="remonda_summer25/fig_tree.jpg" alt="Fig Tree">
+    </a>
+    <a href="remonda_summer25/waves.jpg" data-lightbox="gallery" data-title="Waves — Photo by Hend Hassan">
+      <img src="remonda_summer25/waves.jpg" alt="Waves">
+    </a>
+  </div>
+
+  <!-- Lightbox2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+</body>
+</html>
