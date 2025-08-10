@@ -17,17 +17,37 @@
       gap: 20px;
       padding: 20px;
     }
-    .gallery a {
-      transition: transform 0.3s ease-in-out;
+
+    .img-container {
+      position: relative;
+      display: inline-block;
     }
-    .gallery a:hover {
-      transform: scale(1.05);
-    }
-    .gallery img {
+
+    .img-container img {
       height: 400px;
       width: auto;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: block;
+    }
+
+    .watermark {
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 12px;
+      color: white;
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-family: sans-serif;
+      pointer-events: none; /* So watermark doesn't block clicks */
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0 15px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
@@ -51,60 +71,118 @@
   </div>
 
   <div class="gallery">
-    <!-- Lightbox image links with captions -->
-    <a href="fig.jpg" data-lightbox="gallery" data-title="Fig — Photo by Remonda Hassan">
-      <img src="fig.jpg" alt="Fig">
+    <!-- Reordered for visual flow -->
+    <a href="remonda_summer25/fig.jpg" data-lightbox="gallery" data-title="Fig — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/fig.jpg" alt="Fig">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="goose.jpg" data-lightbox="gallery" data-title="Goose — Photo by Remonda Hassan">
-      <img src="goose.jpg" alt="Goose">
+
+    <a href="remonda_summer25/yellow_rose.jpg" data-lightbox="gallery" data-title="Yellow Rose — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/yellow_rose.jpg" alt="Yellow Rose">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="bud.jpg" data-lightbox="gallery" data-title="Bud — Photo by Hend Hassan">
-      <img src="bud.jpg" alt="Bud">
+
+    <a href="remonda_summer25/goose.jpg" data-lightbox="gallery" data-title="Goose — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/goose.jpg" alt="Goose">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-     <a href="zibeba_bw.jpg" data-lightbox="gallery" data-title="Zibeba — Photo by Remonda Hassan">
-      <img src="zibeba_bw.jpg" alt="Zibeba">
+
+    <a href="remonda_summer25/pink_rose.jpg" data-lightbox="gallery" data-title="Pink Roses — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/pink_rose.jpg" alt="Pink Rose">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="eggs.jpg" data-lightbox="gallery" data-title="Eggs in a Nest— Photo by Remonda Hassan">
-      <img src="eggs.jpg" alt="Eggs">
+
+    <a href="remonda_summer25/ggb.jpg" data-lightbox="gallery" data-title="Golden Gate Bridge — Photo by Hend Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/ggb.jpg" alt="Golden Gate Bridge">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="tahoe_forest_tall.jpg" data-lightbox="gallery" data-title="Tahoe Forest — Photo by Remonda Hassan">
-      <img src="tahoe_forest_tall.jpg" alt="Tahoe Forest">
+
+    <a href="remonda_summer25/white_rose.jpg" data-lightbox="gallery" data-title="White Rose — Photo by Hend Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/white_rose.jpg" alt="White Rose">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="trees_up.jpg" data-lightbox="gallery" data-title="Looking up at the Trees — Photo by Remonda Hassan">
-      <img src="trees_up.jpg" alt="Trees Up">
+
+    <a href="remonda_summer25/tahoe_forest_tall.jpg" data-lightbox="gallery" data-title="Tahoe Forest — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/tahoe_forest_tall.jpg" alt="Tahoe Forest">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="ggb.jpg" data-lightbox="gallery" data-title="Golden Gate Bridge — Photo by Hend Hassan">
-      <img src="ggb.jpg" alt="Golden Gate Bridge">
+
+    <a href="remonda_summer25/eggs.jpg" data-lightbox="gallery" data-title="Eggs in a Nest— Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/eggs.jpg" alt="Eggs">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="yellow_rose.jpg" data-lightbox="gallery" data-title="Yellow Rose — Photo by Remonda Hassan">
-      <img src="yellow_rose.jpg" alt="Yellow Rose">
+
+    <a href="remonda_summer25/trees_up.jpg" data-lightbox="gallery" data-title="Looking up at the Trees — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/trees_up.jpg" alt="Trees Up">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="pink_rose.jpg" data-lightbox="gallery" data-title="Pink Roses — Photo by Remonda Hassan">
-      <img src="pink_rose.jpg" alt="Pink Rose">
+
+    <a href="remonda_summer25/los_angeles.jpg" data-lightbox="gallery" data-title="On the way back from Los Angeles — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/los_angeles.jpg" alt="los_angeles">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="white_rose.jpg" data-lightbox="gallery" data-title="White Rose — Photo by Hend Hassan">
-      <img src="white_rose.jpg" alt="White Rose">
+
+    <a href="remonda_summer25/waves.jpg" data-lightbox="gallery" data-title="Waves — Photo by Hend Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/waves.jpg" alt="Waves">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="sparkly_ocean.jpg" data-lightbox="gallery" data-title="Sparkly Ocean — Photo by Hend Hassan">
-      <img src="sparkly_ocean.jpg" alt="Sparkly Ocean">
+
+    <a href="remonda_summer25/bud.jpg" data-lightbox="gallery" data-title="Bud — Photo by Hend Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/bud.jpg" alt="Bud">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="fig_tree.jpg" data-lightbox="gallery" data-title="Fig Tree — Photo by Remonda Hassan">
-      <img src="fig_tree.jpg" alt="Fig Tree">
+
+    <a href="remonda_summer25/sparkly_ocean.jpg" data-lightbox="gallery" data-title="Sparkly Ocean — Photo by Hend Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/sparkly_ocean.jpg" alt="Sparkly Ocean">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-    <a href="waves.jpg" data-lightbox="gallery" data-title="Waves — Photo by Hend Hassan">
-      <img src="waves.jpg" alt="Waves">
+
+    <a href="remonda_summer25/zibeba_bw.jpg" data-lightbox="gallery" data-title="Zibeba — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/zibeba_bw.jpg" alt="Zibeba">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
-     <a href="los_angeles.jpg" data-lightbox="gallery" data-title="On the way back from Los Angeles — Photo by Remonda Hassan">
-      <img src="los_angeles.jpg" alt="los_angeles">
+
+    <a href="remonda_summer25/fig_tree.jpg" data-lightbox="gallery" data-title="Fig Tree — Photo by Remonda Hassan">
+      <div class="img-container">
+        <img src="remonda_summer25/fig_tree.jpg" alt="Fig Tree">
+        <span class="watermark">© 2025 Figography</span>
+      </div>
     </a>
   </div>
+
+  <footer>
+    <p>© 2025 Figography. All rights reserved.</p>
+  </footer>
 
   <!-- Lightbox2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
 </body>
-
-
-
-
-
-
+</html>

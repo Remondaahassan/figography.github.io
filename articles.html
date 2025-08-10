@@ -1,12 +1,65 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <link rel="stylesheet" href="style.css">
-    <title>Articles | Figography</title>
-  </head>
-    <body class="light-page">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery | Figography</title>
 
- <header>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .article-card {
+      text-decoration: none;
+      color: inherit;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .article-title {
+      padding: 12px;
+      background-color: #f5f5f5;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0 15px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body class="light-page">
+  <header>
     <div class="name"><h1>Figography</h1></div>
     <nav>
       <ul>
@@ -23,10 +76,29 @@
     <h1>Articles</h1>
   </div>
 
-  <section class="coming-soon">
-  <h2>Coming Soon!</h2>
-  <p>Articles are on the way. Stay tuned for insightful reads and nature-inspired stories.</p>
-</section>
+  <div class="article-grid">
+    <!-- Article Card 1 -->
+    <a href="sustainable_fashion.html" class="article-card">
+      <img src="remonda_summer25/tahoe_forest_tall.jpg" alt="The Fashion Industry and the World">
+      <div class="article-title">The Fashion Industry and the World</div>
+    </a>
 
-    </body>
+    <!-- Example Future Card -->
+    <a href="wildlife_conservation.html" class="article-card">
+      <!--<img src="images/ocean.jpg" alt="Ocean Cleanup Initiatives">-->
+     <div class="article-title">Coming Soon!</div>
+    </a>
+
+    <!-- Example Future Card -->
+    <a href="ocean_cleanup.html" class="article-card">
+      <!--<img src="images/ocean.jpg" alt="Ocean Cleanup Initiatives">-->
+     <div class="article-title">Coming Soon!</div>
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2025 Figography. All rights reserved.</p>
+  </footer>
+</body>
 </html>
+

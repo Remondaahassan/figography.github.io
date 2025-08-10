@@ -666,3 +666,27 @@ nav ul li a.active {
 }
 
 
+.back-link {
+  position: fixed;
+  top: 80px; /* pushed down to avoid overlapping header */
+  left: 20px;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #333;
+  background: #eaeaea;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.2s ease-in-out;
+  z-index: 1000;
+}
+.back-link:hover {
+  background: #ccc;
+}
+.back-link svg {
+  width: 14px;
+  height: 14px;
+}
+
