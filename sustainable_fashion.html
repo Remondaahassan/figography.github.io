@@ -1,28 +1,41 @@
 <!doctype html>
 <html lang="en">
-    
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Fashion Industry and the World — Figographie</title>
   <meta name="description" content="How the fashion industry connects to water, food, climate, and human rights—full article." />
+  
   <style>
-    
-    a {
-  color: #000000; /* Sets the text color to black */
-  text-decoration: underline; /* Ensures the underline is present */
-  text-decoration-color: #000000; /* Sets the underline color to black */
-}
-a:hover {
-  color: #0f766e; /* Changes text color on hover */
-  text-decoration-color: #0f766e; /* Changes underline color on hover */
-}
-a:visited {
-  color: #000000; /* Keeps visited link text black */
-  text-decoration-color: #000000; /* Keeps visited link underline black */
-}
+    /* Prevent selection globally, but allow links to be selected/clicked */
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    a, a * {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
 
-    :root{
+    a {
+      color: #000000;
+      text-decoration: underline;
+      text-decoration-color: #000000;
+    }
+    a:hover {
+      color: #0f766e;
+      text-decoration-color: #0f766e;
+    }
+    a:visited {
+      color: #000000;
+      text-decoration-color: #000000;
+    }
+
+    :root {
       --bg: #fbfbfb;
       --card: #ffffff;
       --text: #0f172a;
@@ -36,52 +49,54 @@ a:visited {
       --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue';
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:var(--sans);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .wrap{max-width:var(--maxw);margin:32px auto;padding:0 20px}
-    header{padding:28px 0}
-    h1{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.4rem);margin:.2rem 0;color:#072f2a}
-    .lede{color:var(--muted);margin:0 0 6px}
-    .meta{font-size:.9rem;color:var(--muted);margin-bottom:18px}
+    .wrap { max-width: var(--maxw); margin: 32px auto; padding: 0 20px }
+    header { padding: 28px 0 }
+    h1 { font-family: var(--serif); font-size: clamp(1.6rem,2.6vw,2.4rem); margin: .2rem 0; color: #072f2a }
+    .lede { color: var(--muted); margin: 0 0 6px }
+    .meta { font-size: .9rem; color: var(--muted); margin-bottom: 18px }
 
-    article{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(16,24,40,0.06);padding:28px}
-    section{margin-bottom:22px}
-    h2{font-size:1.05rem;margin:0 0 .6rem;color:#0b3b36}
-    p{margin:0 0 .9rem;color:var(--text)}
+    article { background: var(--card); border-radius: var(--radius); box-shadow: 0 8px 30px rgba(16,24,40,0.06); padding: 28px }
+    section { margin-bottom: 22px }
+    h2 { font-size: 1.05rem; margin: 0 0 .6rem; color: #0b3b36 }
+    p { margin: 0 0 .9rem; color: var(--text) }
 
-    /* Pull quote */
-    blockquote.pull{
-      background:#f8fafc;border-left:4px solid var(--accent);
-      padding:14px;border-radius:8px;margin:14px 0;color:#063134;font-style:normal;
+    blockquote.pull {
+      background: #f8fafc;
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 8px;
+      margin: 14px 0;
+      color: #063134;
+      font-style: normal;
     }
 
-    /* small caption / muted */
-    figcaption{font-size:.92rem;color:var(--muted);margin-top:8px}
+    figcaption { font-size: .92rem; color: var(--muted); margin-top: 8px }
 
-    /* checklist */
-    .checklist{display:grid;gap:12px;padding-top:6px}
-    .check{display:flex;gap:12px;align-items:flex-start}
-    .check svg{flex:0 0 22px;margin-top:4px}
+    .checklist { display: grid; gap: 12px; padding-top: 6px }
+    .check { display: flex; gap: 12px; align-items: flex-start }
+    .check svg { flex: 0 0 22px; margin-top: 4px }
 
-    /* responsive columns for larger screens for some sections */
-    .two-col{display:block;gap:22px;align-items:start}
-    @media (max-width:900px){
-      .two-col{gap:16px}
+    .two-col { display: block; gap: 22px; align-items: start }
+    @media (max-width:900px) {
+      .two-col { gap: 16px }
     }
 
-    footer.note{margin-top:18px;padding-top:12px;border-top:1px dashed var(--soft-border);color:var(--muted);font-size:.95rem}
-    a{color:var(--accent-2);text-decoration:none}
-  .back-link {
+    footer.note { margin-top: 18px; padding-top: 12px; border-top: 1px dashed var(--soft-border); color: var(--muted); font-size: .95rem }
+    a { color: var(--accent-2); text-decoration: none }
+    
+    .back-link {
       position: fixed;
       top: 20px;
       left: 20px;
@@ -97,13 +112,8 @@ a:visited {
       transition: background 0.2s ease-in-out;
       z-index: 1000;
     }
-    .back-link:hover {
-      background: #ccc;
-    }
-    .back-link svg {
-      width: 14px;
-      height: 14px;
-    }
+    .back-link:hover { background: #ccc }
+    .back-link svg { width: 14px; height: 14px }
     footer {
       text-align: center;
       padding: 20px;
@@ -113,8 +123,21 @@ a:visited {
       border-top: 1px solid #ddd;
     }
   </style>
+
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable common copy shortcuts
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && ['c', 'u', 'x', 'a', 's', 'p'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+    });
+  </script>
 </head>
 <body>
+
 
   <a href="articles.html" class="back-link">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -127,7 +150,7 @@ a:visited {
     <header>
       <h1>The Fashion Industry and the World</h1>
       <p class="lede">How clothing connects to water, food, climate, and human rights.</p>
-      <div class="meta">Written by: Remonda Hassan — <span style="color:var(--muted)">April 11, 2022</span></div>
+      <div class="meta">Remonda Hassan — <span style="color:var(--muted)">April 11, 2022</span></div>
     </header>
 
     <article>
@@ -164,7 +187,7 @@ a:visited {
             <h2>The Impact of Cotton</h2>
             <p>Mogavero notes that 60% of clothing in the US is made from cotton—one of the most water-demanding crops, requiring 7,000 to 29,000 liters of water per kilogram. Cotton also relies heavily on pesticides and insecticides, which pollute soil and water. According to Cho, fertilizers often run off into nearby rivers and lakes, oversaturating them with nutrients. <a href = "https://www.wri.org/initiatives/eutrophication-and-hypoxia/learn">This causes eutrophication</a>, leading to massive algal blooms.</p>
 
-            <p>When algae die, they sink to low-oxygen layers, where bacteria decompose them through aerobic respiration, consuming oxygen faster than it can be replenished. This creates hypoxic zones, or “dead zones,” where most aquatic life cannot survive. Eutrophication also reduces water quality: decomposing algae release large amounts of carbon dioxide, lowering the pH of seawater in a process called <a href = "https://www.fisheries.noaa.gov/insight/understanding-ocean-acidification#:~:text=Ocean%20acidification%20is%20expected%20to,that%20are%20difficult%20to%20value">ocean acidification.</a>Acidification slows the growth of fish and shellfish, reducing seafood yields and making it more expensive.</p>
+            <p>When algae die, they sink to low-oxygen layers, where bacteria decompose them through aerobic respiration, consuming oxygen faster than it can be replenished. This creates hypoxic zones, or “dead zones,” where most aquatic life cannot survive. Eutrophication also reduces water quality: decomposing algae release large amounts of carbon dioxide, lowering the pH of seawater in a process called <a href = "https://www.fisheries.noaa.gov/insight/understanding-ocean-acidification#:~:text=Ocean%20acidification%20is%20expected%20to,that%20are%20difficult%20to%20value">ocean acidification.</a> Acidification slows the growth of fish and shellfish, reducing seafood yields and making it more expensive.</p>
           </div>
         </div>
       </section>
