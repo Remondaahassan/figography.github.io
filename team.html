@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Figeographie</title>
+  <!-- Google Font: Nanum Myeongjo -->
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nanum Myeongjo', serif;
+      background-color: #f4f6f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0.5rem 0 0;
+      padding: 0;
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f9fff3;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      list-style: none;
+      padding: 10px 0;
+      min-width: 160px;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 8px 16px;
+      color: #2c3e50;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dropdown-menu li a:hover {
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    .about-header h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 30px 0;
+      color: #2c3e50;
+    }
+
+    /* Card style for sections */
+    .card {
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: #f9fff3;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    /* About container using flexbox */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-image {
+      flex: 0 0 300px;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .about-text {
+      flex: 1 1 500px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+    }
+
+    /* Divider between sections */
+    .divider {
+      width: 80%;
+      max-width: 800px;
+      height: 2px;
+      background: #d4e8c2;
+      margin: 60px auto;
+      border-radius: 1px;
+    }
+
+    /* Quote Section */
+    .quote-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .quote-card {
+      background: linear-gradient(to right, #d4e8c2, #f1fbe3);
+      font-style: italic;
+      font-size: 22px;
+      color: #3b4a2c;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .quote-card footer {
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: bold;
+      color: #2a3b1e;
+    }
+
+    /* Timeline Section */
+    .timeline-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .timeline-section h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #2a3b1e;
+    }
+
+    .timeline-card {
+      background-color: #f9fff3;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      padding: 40px 30px;
+    }
+
+    .timeline {
+      border-left: 4px solid #5c8a3e;
+      margin-left: 20px;
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background-color: #5c8a3e;
+      border-radius: 50%;
+    }
+
+    .timeline-item .year {
+      font-weight: bold;
+      color: #5c8a3e;
+      font-size: 18px;
+    }
+
+    .timeline-item p {
+      margin: 5px 0 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .about-image {
+        max-width: 80%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="name"><h1>Figeographie</h1></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="embrace_relief.html">Embrace Relief</a></li>
+      <li class="dropdown">
+        <a href="about.html" class="active">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="team.html">Our Team</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="about-header">
+    <h1>About</h1>
+  </div>
+
+  <!-- About Card -->
+  <div class="card about-card">
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          My name is Remonda, and I am a nature enthusiast. I created <strong>Figeographie</strong> to showcase the extraordinary world that we live in.
+        </p>
+        <p>
+          The name “Figeographie” was inspired by the first deliberate photo I ever took — a fig on the ground during a walk to school with my sister.
+          Each day, we would pass a beautiful fig tree bursting with ripe fruit. Many would fall, and we’d look for the uncracked ones to snack on as we walked.
+        </p>
+        <p>
+          That fig, and that moment, captured the joy and sweetness I find in nature. It became the symbol of my love for photography — especially of plants.
+        </p>
+        <p>
+          I hope this site helps you discover a little sweetness in the world around you, too.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="remonda_summer25/remonda.jpg" alt="Remonda" />
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Quote Card -->
+  <section class="quote-section">
+    <div class="quote-card">
+      <blockquote>
+        “Look deep into nature, and then you will understand everything better.”
+        <footer>— Albert Einstein</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Timeline Card -->
+  <section class="timeline-section">
+    <h2>My Story</h2>
+    <div class="timeline-card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="year">September 2023</span>
+          <p>Took my first photo — a fig on the sidewalk under a tree I passed every day.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="year">March 2024</span>
+          <p>Started taking plant and landscape photos regularly on walks and trips.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="year">July 2025</span>
+          <p>Created Figeographie to share my view of the world with others.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="year">Present</span>
+          <p>Continuing to explore nature, improve my craft, and bring light to environment-related issues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        const item = entry.target;
+        const index = Array.from(timelineItems).indexOf(item);
+        item.style.transitionDelay = `${index * 0.2}s`;
+        item.classList.add('visible');
+        observer.unobserve(item); 
+      }
+    });
+  }, { threshold: 0.5 });
+
+  timelineItems.forEach(item => {
+    observer.observe(item);
+  });
+</script>
+
+</body>
+</html>

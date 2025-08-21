@@ -4,9 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Embrace Relief | Figeographie</title>
-  <link rel="stylesheet" href="style.css" />
+
+   <!-- Google Font: Nanum Myeongjo -->
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* General Styles */
+ body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      font-family: 'Times New Roman', serif;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0.5rem 0 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    .content-box {
+      max-width: 850px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .content-box h1, 
+    .content-box h2 {
+      color: #1b5e20;
+      margin-top: 1.5rem;
+      text-align: center;
+      font-family: nanum myeongjo, serif;
+    }
+
+    .banner {
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.25rem;
+    }
+
+    .image-wrap {
+      float: right;
+      margin: 0 0 1rem 1.5rem;
+      width: 40%;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .donate-btn {
+      display: inline-block;
+      background: #2e7d32;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .donate-btn:hover {
+      background: #1b5e20;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
-<body class="light-page">
+<body>
 
   <header>
     <div class="name"><h1>Figeographie</h1></div>
@@ -15,8 +127,63 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="articles.html">Articles</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="embrace_relief.html" class="active">Embrace Relief</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
+
+  <main>
+    <div class="content-box">
+      <h1>Embrace Relief</h1>
+
+      <img src="embrace_relief_images/foh_banner.jpg" alt="Embrace Relief Banner" class="banner" />
+      <p class="caption">Courtesy of Embrace Relief</p>
+
+      <p>
+        Across sub-Saharan Africa, over 50,000 water supply points are broken or abandoned, 
+        leaving millions of people without access to safe, reliable water. But it doesn’t have to stay that way.
+      </p>
+      <p>
+        Embrace Relief is on a mission to restore these vital water sources through their <em>Fountains of Hope</em> initiative.
+        Since 2013, Embrace Relief has provided clean, safe water to over 1,000,000 people, transforming lives in 
+        communities that once struggled daily for this basic necessity. Building on that success, 
+        Figeographie partnered with the <em>Fountains of Hope</em> initiative in 2025 
+        to repair identified non-functional wells in Africa, restoring water access where it was lost.
+      </p>
+
+      <h2>Why Restoring a Well Matters</h2>
+
+      <div class="image-wrap">
+        <img src="embrace_relief_images/kids_drinking.jpg" alt="Well Repair" />
+        <p class="caption">Courtesy of Embrace Relief</p>
+      </div>
+
+      <p>
+        Restoring a damaged well is cost-effective and powerful. 
+        For just $1,500, you can bring an entire well back to life, 
+        delivering the same high-quality, long-lasting clean water as a brand new one. 
+        Every repair helps families thrive, improves sanitation, reduces the spread of waterborne illnesses, 
+        and unlocks opportunities for education, agriculture, and economic growth.
+      </p>
+
+      <h2>Figeographie's Goal</h2>
+      <p>
+        Our goal is to raise <strong>$6,000</strong> to repair 4 wells in sub-Saharan Africa,
+        restoring access to clean water for an entire community by February 2026.
+      </p>
+
+      <h2>Donate Today!</h2>
+      <p>
+        All donations go directly to Embrace Relief's <em>Fountains of Hope</em> initiative,
+        which has a proven track record of successful well repairs and community impact.
+      </p>
+
+      <a href="https://www.embracerelief.org/donate" target="_blank" class="donate-btn">💧 Donate Now</a>
+    </div>
+  </main>
+
+</body>
+</html>
+

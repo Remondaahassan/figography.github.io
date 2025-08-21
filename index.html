@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Figeographie</title>
 
+  <!-- Google Font: Nanum Myeongjo -->
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
   <style>
     /* Reset */
     * {
@@ -13,11 +16,12 @@
       box-sizing: border-box;
     }
 
-    body, html {
+   body, html {
       height: 100%;
-      font-family: "Helvetica Neue", sans-serif;
+      font-family: 'Nanum Myeongjo', serif;
       overflow: hidden;
     }
+
 
     /* Video Background */
     .video-bg {
@@ -45,6 +49,10 @@
       transform: translate(-50%, -50%);
       text-align: center;
       color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
       padding: 20px;
     }
 
@@ -52,45 +60,74 @@
       font-size: 4rem;
       font-weight: 700;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeUp 1s forwards;
+      animation-delay: 0.3s;
     }
 
     .overlay p {
       font-size: 1.3rem;
       font-weight: 300;
-      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeUp 1s forwards;
+      animation-delay: 0.6s;
     }
 
+    /* Vertical Minimal Buttons */
     .overlay a {
-      display: inline-block;
-      padding: 12px 28px;
-      background-color: rgba(255, 255, 255, 0.85);
-      color: #222;
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: white;
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 30px;
-      transition: all 0.3s ease-in-out;
+      position: relative;
+      padding: 10px 0;
+      width: 200px;
+      opacity: 0;
+      animation: fadeUp 1s forwards;
+      animation-delay: 0.9s;
+      transition: color 0.3s ease;
+    }
+
+    /* Subtle underline hover */
+    .overlay a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
 
     .overlay a:hover {
-      background-color: white;
-      transform: scale(1.05);
+      color: #ddd;
+    }
+
+    .overlay a:hover::after {
+      width: 80%;
     }
 
     /* Fade-in Animation */
-    .overlay h1, .overlay p, .overlay a {
-      opacity: 0;
-      animation: fadeUp 1s forwards;
-    }
-
-    .overlay h1 { animation-delay: 0.3s; }
-    .overlay p { animation-delay: 0.6s; }
-    .overlay a { animation-delay: 0.9s; }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .overlay h1 {
+        font-size: 3rem;
+      }
+      .overlay p {
+        font-size: 1.1rem;
+      }
+      .overlay a {
+        width: 160px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -100,19 +137,19 @@
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="remonda_summer25/figo_intro.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
   </div>
 
   <!-- Centered Overlay -->
   <div class="overlay">
     <h1>Figeographie</h1>
-    <p>Where Nature Meets Lens, Where Lens Meets Humanity </p>
-    <a href="gallery.html"> Gallery</a>
-    <a href="articles.html"> Articles</a>
-    <a href="about.html"> About</a>
-    <a href="contact.html"> Contact</a>
+    <p>Where Nature Meets Lens, Where Lens Meets Humanity</p>
+    <a href="gallery.html">Gallery</a>
+    <a href="articles.html">Articles</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="embrace_relief.html">Embrace Relief</a>
   </div>
 
 </body>
 </html>
+
