@@ -2,17 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Figeographie</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Nanum Myeongjo', serif;
-      background-color: #f4f6f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
+      font-family: sans-serif;
+      overflow: hidden; /* prevent scrollbars */
+      height: 100vh;
+    }
+
+    .glassy-btn {
+      position: absolute;
+      bottom: 17%;
+      right:89%;
+      padding: 12px 12px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .glassy-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Two buttons side-by-side on last slide */
+    .slide .btn-group {
+      position: absolute;
+      bottom: 17%;
+      right: 89%;
+      display: flex;
+      gap: 12px;
+    }
+
+    .caption {
+      position: absolute;
+      top: 97%;
+      right: 1%;
+      transform: translateY(-50%);
+      max-width: 25%;
+      color: white;
+      font-size: 1rem;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-align: right;
+      z-index: 3;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: relative;
+      min-width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+
+    /* Glassy overlay on left third */
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      width: 33%;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      color: white;
+    }
+
+    .overlay h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .overlay p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* Arrows */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 32px;
+      padding: 14px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
+    /* Dots */
+    .dots {
+      text-align: center;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      z-index: 2;
+    }
+    .dot {
+      height: 14px;
+      width: 14px;
+      margin: 0 5px;
+      background-color: rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .dot.active {
+      background-color: white;
     }
 
     header {
@@ -24,7 +154,13 @@
       z-index: 1000;
     }
 
-    header h1 { margin: 0; font-weight: 700; font-size: 1.5rem; color: #2c3e50; }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      font-family: 'Times New Roman', serif;
+    }
 
     nav ul {
       list-style: none;
@@ -34,76 +170,66 @@
       padding: 0;
     }
 
-    nav a { text-decoration: none; color: #2c3e50; font-weight: 500; padding: 0.3rem 0.6rem; border-radius: 6px; transition: background 0.3s; }
-    nav a:hover, nav a.active { background: #e8f5e9; color: #1b5e20; }
-
-    /* Slider Styles */
-    .story-wrapper {
-      position: relative;
-      max-width: 700px;
-      margin: 60px auto;
-      overflow: hidden;
+    nav a {
+      display: inline-block;
+      text-align: center;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      transition: background 0.3s;
     }
 
-    .story-container {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
+    nav a:hover,
+    nav a.active {
+      background: #e8f5e9;
+      color: #1b5e20;
     }
 
-    .story-slide {
-      flex: 0 0 100%;
-      box-sizing: border-box;
-      min-height: 350px;
-      background: #f9fff3;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      padding: 40px 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 18px;
-      line-height: 1.6;
-      position: relative;
-    }
+    nav li.dropdown { position: relative; }
 
-    .page-number {
+    nav li.dropdown .dropdown-menu {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
-      bottom: 15px;
-      right: 20px;
-      font-weight: bold;
-      color: #5c8a3e;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      list-style: none;
+      padding: 0.5rem 0;
+      min-width: 150px;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #5c8a3e;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 10;
-      opacity: 0.8;
-      transition: opacity 0.3s;
+    nav li.dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
     }
 
-    .arrow:hover { opacity: 1; }
+    nav li.dropdown .dropdown-menu li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-    .arrow-left { left: -20px; }
-    .arrow-right { right: -20px; }
+    nav li.dropdown .dropdown-menu li a:hover {
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
 
-    @media (max-width: 768px) {
-      .story-wrapper { max-width: 90%; }
-      .arrow-left { left: -10px; }
-      .arrow-right { right: -10px; }
+    nav li.dropdown > a {
+      padding-right: 1.5rem;
     }
   </style>
 </head>
-<body>
 
 <header>
   <div class="name"><h1>Figeographie</h1></div>
@@ -116,7 +242,7 @@
       <li class="dropdown">
         <a href="about.html" class="active">About</a>
         <ul class="dropdown-menu">
-          <li><a href="team.html">Our Team</a></li>
+          <li><a href="team.html">Team</a></li>
         </ul>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -124,56 +250,110 @@
   </nav>
 </header>
 
-<main>
-  <div class="about-header"><h1>About Figeographie</h1></div>
+<body>
+  <div class="slideshow-container" id="slideshow">
+    <div class="slides" id="slides">
 
-  <div class="story-wrapper">
-    <button class="arrow arrow-left" onclick="prevSlide()">‹</button>
-    <div class="story-container" id="storyContainer">
-      <div class="story-slide">
-        <p>In June 2025, Remonda Hassan created Figeographie. It was originally meant to showcase her nature photography.</p>
-        <div class="page-number">1/4</div>
+      <div class="slide" style="background-image: url('seneca_summer25/geyser.jpg');" data-caption="Photo by Seneca Wattanapanich">
+        <div class="overlay">
+          <h1>How We Originated</h1>
+          <p>In June 2025, Remonda Hassan created Figeographie. It was originally meant to showcase her nature photography. The name “Figeographie” was inspired by the first deliberate photo she took — a fig on the ground while walking to school with her sister.</p>
+        </div>
+        <button class="glassy-btn"> <a href="gallery.html"></a>Gallery</a></button>
       </div>
-      <div class="story-slide">
-        <p>The name “Figeographie” was inspired by the first deliberate photo she took — a fig on the ground while walking to school with her sister.</p>
-        <div class="page-number">2/4</div>
+
+      <div class="slide" style="background-image: url('remonda_summer25/waves.jpg');" data-caption="Photo by Hend Hassan">
+        <div class="overlay">
+          <h1>Why We Proceeded</h1>
+          <p>While coding the site, she remembered her article on the fashion industry’s impact on global clean water, and decided to link an articles page. She couldn't just let go of an opportunity to help the most vulnerable in the world.</p>
+        </div>
+        <button class="glassy-btn">Articles</button>
       </div>
-      <div class="story-slide">
-        <p>While coding the site, she remembered her article on the fashion industry’s impact on global clean water, and decided to link an articles page.</p>
-        <div class="page-number">3/4</div>
+
+      <div class="slide" style="background-image: url('seneca_summer25/sunset.jpg');" data-caption="Photo by Seneca Wattanapanich">
+        <div class="overlay">
+          <h1>Where We Are Now</h1>
+          <p>Today, Figeographie is run by volunteers who combine nature photography, environmental articles, and a charity collaboration with Embrace Relief for water wells in Sub-Saharan Africa to help quench the thirst of billions deprived of this basic need.</p>
+        </div>
+        <div class="btn-group">
+          <button class="glassy-btn">Embrace Relief</button>
+          <button class="glassy-btn">Contact Us</button>
+        </div>
       </div>
-      <div class="story-slide">
-        <p>Today, Figeographie combines nature photography, environmental articles, and charity collaboration with Embrace Relief for water wells in Sub-Saharan Africa.</p>
-        <div class="page-number">4/4</div>
-      </div>
+
     </div>
-    <button class="arrow arrow-right" onclick="nextSlide()">›</button>
+
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    <div class="dots" id="dots"></div>
   </div>
-</main>
 
-<footer>
-  <p>© 2025 Figeographie. All rights reserved.</p>
-</footer>
+  <div class="caption" id="caption"></div>
 
-<script>
-  const container = document.getElementById('storyContainer');
-  const totalSlides = container.children.length;
-  let currentIndex = 0;
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
+    const dotsContainer = document.getElementById("dots");
+    let autoPlayInterval;
 
-  function updateSlide() {
-    container.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      dot.onclick = () => { goToSlide(i); resetAutoPlay(); };
+      dotsContainer.appendChild(dot);
+    }
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
+    function updateSlide() {
+      slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+      document.querySelectorAll(".dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+      captionEl.textContent = slides.children[currentIndex].dataset.caption;
+    }
+
+    function moveSlide(step) {
+      currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+      updateSlide();
+      resetAutoPlay();
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlide();
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        moveSlide(1);
+      }, 4000);
+    }
+
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      startAutoPlay();
+    }
+
+    let startX = 0;
+    const slideshow = document.getElementById("slideshow");
+
+    slideshow.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    slideshow.addEventListener("touchend", (e) => {
+      let endX = e.changedTouches[0].clientX;
+      let diff = startX - endX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) moveSlide(1);
+        else moveSlide(-1);
+      }
+    });
+
+    const captionEl = document.getElementById("caption");
+
     updateSlide();
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlide();
-  }
-</script>
-
+    startAutoPlay();
+  </script>
 </body>
 </html>
