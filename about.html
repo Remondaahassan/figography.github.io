@@ -14,9 +14,6 @@
     }
 
     .glassy-btn {
-      position: absolute;
-      bottom: 17%;
-      right:89%;
       padding: 12px 12px;
       border: none;
       border-radius: 12px;
@@ -36,13 +33,20 @@
       transform: translateY(-2px);
     }
 
-    /* Two buttons side-by-side on last slide */
+    /* Single button floating on slide */
+    .slide > .glassy-btn {
+      position: absolute;
+      bottom: 17%;
+      left: 5%;
+    }
+
+    /* Button group on last slide (left aligned) */
     .slide .btn-group {
       position: absolute;
       bottom: 17%;
-      right: 89%;
+      left: 5%;
       display: flex;
-      gap: 12px;
+      gap: 16px;
     }
 
     .caption {
@@ -259,13 +263,13 @@
           <h1>How We Originated</h1>
           <p>In June 2025, Remonda Hassan created Figeographie. It was originally meant to showcase her nature photography. The name “Figeographie” was inspired by the first deliberate photo she took — a fig on the ground while walking to school with her sister.</p>
         </div>
-        <button class="glassy-btn"> <a href="gallery.html"></a>Gallery</a></button>
+        <button class="glassy-btn">Gallery</button>
       </div>
 
       <div class="slide" style="background-image: url('remonda_summer25/waves.jpg');" data-caption="Photo by Hend Hassan">
         <div class="overlay">
           <h1>Why We Proceeded</h1>
-          <p>While coding the site, she remembered her article on the fashion industry’s impact on global clean water, and decided to link an articles page. She couldn't just let go of an opportunity to help the most vulnerable in the world.</p>
+          <p>While coding the site, she had the opportunity to ponder on the impact of human-induced issues on members of our global society. Her contemplation led her to deciding that she couldn't just let go of an opportunity to help the most vulnerable in the world.</p>
         </div>
         <button class="glassy-btn">Articles</button>
       </div>
@@ -273,7 +277,7 @@
       <div class="slide" style="background-image: url('seneca_summer25/sunset.jpg');" data-caption="Photo by Seneca Wattanapanich">
         <div class="overlay">
           <h1>Where We Are Now</h1>
-          <p>Today, Figeographie is run by volunteers who combine nature photography, environmental articles, and a charity collaboration with Embrace Relief for water wells in Sub-Saharan Africa to help quench the thirst of billions deprived of this basic need.</p>
+          <p>Today, Figeographie is run by volunteers who combine nature photography, environmental articles, and a charity collaboration with UNRWA and World Central Kitchen to raise money for vulnerable and malnutritioned Palestinians impacted by the humanitarian crisis inflicted upon them by the ongoing war.</p>
         </div>
         <div class="btn-group">
           <button class="glassy-btn">Embrace Relief</button>
@@ -326,7 +330,7 @@
     function startAutoPlay() {
       autoPlayInterval = setInterval(() => {
         moveSlide(1);
-      }, 4000);
+      }, 5000);
     }
 
     function resetAutoPlay() {
