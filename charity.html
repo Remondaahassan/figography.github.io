@@ -123,18 +123,19 @@
 <body>
 
   <header>
-    <div class="name"><h1>Figeographie</h1></div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="embrace_relief.html" class="active">Embrace Relief</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="name"><h1>Figeographie</h1></div>
+  <button class="hamburger" aria-label="Toggle navigation">☰</button>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="embrace_relief.html" class="active">Embrace Relief</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main>
     <div class="content-box">
@@ -185,6 +186,15 @@
       <a href="https://www.embracerelief.org/donate" target="_blank" class="donate-btn"> Donate Now</a>
     </div>
   </main>
+
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
 
 </body>
 </html>
