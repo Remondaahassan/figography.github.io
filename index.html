@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="mobile.css">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Figeographie</title>
 
   <!-- Google Font: Nanum Myeongjo -->
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
   <style>
     /* Reset */
@@ -16,12 +18,11 @@
       box-sizing: border-box;
     }
 
-   body, html {
+    body, html {
       height: 100%;
       font-family: 'Nanum Myeongjo', serif;
       overflow: hidden;
     }
-
 
     /* Video Background */
     .video-bg {
@@ -73,7 +74,7 @@
       animation-delay: 0.6s;
     }
 
-    /* Vertical Minimal Buttons */
+    /* Menu links */
     .overlay a {
       display: block;
       font-size: 1.2rem;
@@ -87,6 +88,7 @@
       animation: fadeUp 1s forwards;
       animation-delay: 0.9s;
       transition: color 0.3s ease;
+      cursor: pointer;
     }
 
     /* Subtle underline hover */
@@ -110,6 +112,31 @@
       width: 80%;
     }
 
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      width: 200px;
+    }
+
+    .dropdown-content {
+      display: none;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 6px;
+      margin-top: 5px;
+      animation: fadeUp 0.4s ease;
+    }
+
+    .dropdown-content a {
+      font-size: 1rem;
+      padding: 8px 0;
+      width: 100%;
+    }
+
+    .dropdown.active .dropdown-content {
+      display: flex;
+    }
+
     /* Fade-in Animation */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -124,7 +151,7 @@
       .overlay p {
         font-size: 1.1rem;
       }
-      .overlay a {
+      .overlay a, .dropdown {
         width: 160px;
         font-size: 1rem;
       }
@@ -137,6 +164,7 @@
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="remonda_summer25/figo_intro.mp4" type="video/mp4">
+    </video>
   </div>
 
   <!-- Centered Overlay -->
@@ -146,10 +174,34 @@
     <a href="gallery.html">Gallery</a>
     <a href="articles.html">Articles</a>
     <a href="charity.html">Embrace Relief</a>
-    <a href="about.html">About</a>
+
+    <!-- Dropdown for About -->
+    <div class="dropdown">
+      <a id="about-toggle">About ▾</a>
+      <div class="dropdown-content">
+        <a href="about.html">About Us</a>
+        <a href="team.html">Team</a>
+      </div>
+    </div>
+
     <a href="contact.html">Contact</a>
   </div>
 
+  <!-- JavaScript for dropdown -->
+  <script>
+    document.getElementById("about-toggle").addEventListener("click", function(e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle("active");
+    });
+
+    // Optional: Close dropdown if clicking elsewhere
+    document.addEventListener("click", function(e) {
+      const dropdown = document.querySelector(".dropdown");
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+  </script>
+
 </body>
 </html>
-

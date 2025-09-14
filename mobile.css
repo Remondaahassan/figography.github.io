@@ -1,0 +1,100 @@
+/* ---------- GLOBAL ---------- */
+body {
+  overflow-x: hidden; /* Prevent sideways scroll */
+}
+
+/* Scale buttons */
+.glassy-btn {
+  font-size: 20px;
+  padding: 12px 16px;
+}
+
+/* Overlay adjustments */
+.overlay {
+  width: 33%;
+  padding: 30px;
+}
+
+.overlay h1 {
+  font-size: 2.2rem;
+}
+
+.overlay p {
+  font-size: 1.1rem;
+}
+
+/* Caption default */
+.caption {
+  font-size: 0.9rem;
+  max-width: 90%;
+  right: 10px;
+  text-align: right;
+}
+
+/* Nav default */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ---------- TABLET (<= 900px) ---------- */
+@media (max-width: 900px) {
+  .overlay {
+    width: 60%;
+    padding: 20px;
+  }
+
+  .overlay h1 { font-size: 1.6rem; }
+  .overlay p { font-size: 1rem; }
+
+  .glassy-btn {
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+}
+
+/* ---------- MOBILE (<= 600px) ---------- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .overlay {
+    width: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .overlay h1 {
+    font-size: 1.4rem;
+  }
+
+  .overlay p {
+    font-size: 0.9rem;
+  }
+
+  .glassy-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .caption {
+    font-size: 0.8rem;
+    text-align: center;
+    right: 50%;
+    transform: translateX(50%);
+    max-width: 95%;
+  }
+
+  .prev, .next {
+    font-size: 24px;
+    padding: 10px;
+  }
+}
