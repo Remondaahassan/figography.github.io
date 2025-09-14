@@ -120,19 +120,22 @@
 <body>
 
   <header>
-    <div class="name"><h1>Figeographie</h1></div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="articles.html">Articles</a></li>
-        
-        <li><a href="charity.html">Embrace Relief</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="name"><h1>Figeographie</h1></div>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="charity.html">Embrace Relief</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
   
   <main>
       <h1>Gallery</h1>
@@ -260,5 +263,12 @@
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
 
 </main>
+
+<script>
+  document.getElementById("hamburger").addEventListener("click", () => {
+    document.getElementById("nav-links").classList.toggle("show");
+  });
+</script>
+
 </body>
 </html>
