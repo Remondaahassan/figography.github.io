@@ -1,136 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="stylesheet" href="mobile.css">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Figeographie</title>
-  <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6O2b+X1f"/>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
 
-    <!-- Google Font: Nanum Myeongjo -->
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <style>
+    /* ---------- GLOBAL ---------- */
+    body {
+      font-family: 'Nanum Myeongjo', serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-<style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    line-height: 1.6;
-  }
+    header {
+      background: #ffffff;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  header {
-    background: #ffffff;
-    border-bottom: 2px solid #e0e0e0;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      font-family: 'Times New Roman', serif;
+    }
 
-  /* Figeographie in Times New Roman */
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #2c3e50;
-    font-family: 'Times New Roman', serif;
-  }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0.5rem 0 0;
+      padding: 0;
+    }
 
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0.5rem 0 0;
-    padding: 0;
-  }
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
 
-  nav a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 500;
-    padding: 0.3rem 0.6rem;
-    border-radius: 6px;
-    transition: background 0.3s;
-  }
+    nav a:hover,
+    nav a.active {
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
 
-  nav a:hover,
-  nav a.active {
-    background: #e8f5e9;
-    color: #1b5e20;
-  }
+    /* Hamburger button */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #2c3e50;
+    }
 
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 40px;
-  }
+    /* Main Contact Section */
+    main.contact-container {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
 
-  .social-icon {
-    color: #444;
-    font-size: 48px;
-    transition: color 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-  }
+    .contact-container h1 {
+      font-size: 2rem;
+      margin-top: 40px;
+      color: #2c3e50;
+      font-family: 'Nanum Myeongjo', serif;
+    }
 
-  p {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #333;
-    margin-top: 20px;
-  }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin: 40px 0;
+      position: relative;
+      z-index: 1;
+    }
 
-  /* Center the Contact title */
-  .contact-container h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 40px;
-    color: #2c3e50;
-    font-family: nanum myeongjo, serif;
-  }
-</style>
+    .social-icon {
+      color: #444;
+      font-size: 48px;
+      transition: color 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+      cursor: pointer;
+    }
 
-        </head>
+    .social-icon:hover {
+      color: #1b5e20;
+    }
 
-<header>
-  <div class="name"><h1>Figeographie</h1></div>
-  <button class="hamburger" aria-label="Toggle navigation">☰</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="articles.html">Articles</a></li>
-      <li><a href="charity.html">Embrace Relief</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      position: relative;
+      z-index: 1;
+    }
 
-  <body>
+    /* ---------- MOBILE MENU ---------- */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 999;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Figeographie</h1>
+    <button class="hamburger" aria-label="Toggle navigation">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="charity.html">Magdi Yacoub Heart Foundation</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main class="contact-container">
     <h1>Contact</h1>
 
     <div class="social-icons">
-    <a href="https://www.instagram.com/remondaahassan/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
+      <a href="https://www.instagram.com/figeographie/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
 
-    <a href="https://linkedin.com/in/remonda-hassan-230a94271" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-      <i class="fa-brands fa-linkedin"></i>
-    </a>
-  </div>
+     <a href="https://mail.google.com/mail/?view=cm&to=figeographie@gmail.com&su=Inquiry%20from%20Figeographie%20website"
+   target="_blank" class="social-icon" aria-label="Email">
+  <i class="fa fa-envelope"></i>
+</a>
+
+    </div>
 
     <p>Thank you for visiting Figeographie!</p>
 
@@ -140,15 +198,12 @@
   </main>
 
   <script>
-  const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
 
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
-
-
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
-
 </html>

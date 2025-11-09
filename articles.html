@@ -1,142 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="mobile.css">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Articles | Figeographie</title>
+  <link rel="stylesheet" href="mobile.css">
   <!-- Google Font: Nanum Myeongjo -->
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
-  
-<style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    line-height: 1.6;
-  }
+  <style>
+    body {
+      font-family: 'Nanum Myeongjo', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
 
-  header {
-    background: #ffffff;
-    border-bottom: 2px solid #e0e0e0;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+    /* ---------- HEADER ---------- */
+    header {
+      background: #ffffff;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Logo left, nav right */
+    }
 
-  /* Figeographie in Times New Roman */
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #2c3e50;
-    font-family: 'Times New Roman', serif;
-  }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      font-family: 'Times New Roman', serif;
+    }
 
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0.5rem 0 0;
-    padding: 0;
-  }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
 
-  nav a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 500;
-    padding: 0.3rem 0.6rem;
-    border-radius: 6px;
-    transition: background 0.3s;
-  }
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
 
-  nav a:hover,
-  nav a.active {
-    background: #e8f5e9;
-    color: #1b5e20;
-  }
+    nav a:hover,
+    nav a.active {
+      background: #e8f5e9;
+      color: #1b5e20;
+    }
 
-  /* Center Articles title */
-  .about-header h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin: 30px 0;
-    color: #2c3e50;
-    font-family: 'Nanum Myeongjo', serif;
-  }
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #2c3e50;
+    }
 
-  .article-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-  }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
 
-  .article-card {
-    text-decoration: none;
-    color: inherit;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    display: flex;
-    flex-direction: column;
-  }
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0; /* aligns dropdown to right */
+        width: 100%;
+        background: #fff;
+        z-index: 999;
+        border-top: 1px solid #e0e0e0;
+      }
 
-  .article-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-  }
+      nav.open {
+        display: block;
+      }
 
-  .article-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+      }
 
-  .article-title {
-    padding: 12px;
-    background-color: #f5f5f5;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-  }
+      nav a {
+        display: block;
+        padding: 0.5rem;
+      }
+    }
 
-  footer {
-    text-align: center;
-    margin: 30px 0 15px;
-    font-size: 14px;
-    color: #666;
-  }
-</style>
+    /* ---------- PAGE CONTENT ---------- */
+    .about-header h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 30px 0;
+      color: #2c3e50;
+      font-family: 'Nanum Myeongjo', serif;
+    }
 
-   
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .article-card {
+      text-decoration: none;
+      color: inherit;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .article-title {
+      padding: 12px;
+      background-color: #f5f5f5;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0 15px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
 
-<body class="light-page">
+<body>
   <header>
-  <div class="name"><h1>Figeographie</h1></div>
-  <button class="hamburger" aria-label="Toggle navigation">☰</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="articles.html" class="active">Articles</a></li>
-      <li><a href="charity.html">Embrace Relief</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <h1>Figeographie</h1>
+    <button class="hamburger" aria-label="Toggle navigation">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="articles.html" class="active">Articles</a></li>
+        <li><a href="charity.html">Magdi Yacoub Heart Foundation</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <div class="about-header">
     <h1>Articles</h1>
@@ -145,19 +187,18 @@
   <div class="article-grid">
     <!-- Article Card 1 -->
     <a href="articles/sustainable_fashion.html" class="article-card">
-      <img src="remonda_hassan/tahoe_forest_tall.jpg" alt="The Fashion Industry and the World">
-      <div class="article-title">The Fashion Industry and the World</div>
+      <img src="articles_photos/clothing.jpeg" alt="Fast Fashion">
+      <div class="article-title">How Your Clothes are Drinking Your Water</div>
     </a>
 
-
     <a href="articles/nile_pollution.html" class="article-card">
-    <img src="images/ocean.jpg" alt="Nile River Pollution Crisis">
-     <div class="article-title">Nile River Pollution Crisis</div>
+      <img src="articles_photos/nile_poll.jpg" alt="Nile River Pollution Crisis">
+      <div class="article-title">Nile River Pollution Crisis</div>
     </a>
 
     <a href="articles/ecocide.html" class="article-card">
-    <img src="images/ocean.jpg" alt="Ecocide and AI">
-     <div class="article-title">Coming Soon!</div>
+      <img src="articles_photos/ecocide.jpg" alt="Ecocide and AI">
+      <div class="article-title">AI and Ecocide: How Modern Technology and Our Daily Use of It Plays a Role in Environmental and Societal Destruction</div>
     </a>
   </div>
 
@@ -166,14 +207,14 @@
   </footer>
 
   <script>
-  const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
 
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
-
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
+
 

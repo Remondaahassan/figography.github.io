@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="mobile.css">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Embrace Relief | Figeographie</title>
+  <title>Magdi Yacoub Heart Foundation | Figeographie</title>
+  <link rel="stylesheet" href="mobile.css">
 
-   <!-- Google Font: Nanum Myeongjo -->
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-
+  <!-- Google Font: Nanum Myeongjo -->
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
   <style>
-    /* General Styles */
- body {
-      font-family: 'Roboto', sans-serif;
+    body {
+      font-family: 'Nanum Myeongjo', sans-serif;
       background-color: #f4f6f9;
       margin: 0;
       padding: 0;
@@ -22,6 +19,7 @@
       line-height: 1.6;
     }
 
+    /* ---------- HEADER ---------- */
     header {
       background: #ffffff;
       border-bottom: 2px solid #e0e0e0;
@@ -29,6 +27,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Logo left, nav right */
     }
 
     header h1 {
@@ -43,7 +44,7 @@
       list-style: none;
       display: flex;
       gap: 1rem;
-      margin: 0.5rem 0 0;
+      margin: 0;
       padding: 0;
     }
 
@@ -61,6 +62,48 @@
       color: #1b5e20;
     }
 
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #2c3e50;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0; /* align dropdown to right */
+        width: 100%;
+        background: #fff;
+        z-index: 999;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.5rem;
+      }
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
     .content-box {
       max-width: 850px;
       margin: 2rem auto;
@@ -75,7 +118,7 @@
       color: #1b5e20;
       margin-top: 1.5rem;
       text-align: center;
-      font-family: nanum myeongjo, serif;
+      font-family: 'Nanum Myeongjo', serif;
     }
 
     .banner {
@@ -120,49 +163,49 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-  <div class="name"><h1>Figeographie</h1></div>
-  <button class="hamburger" aria-label="Toggle navigation">☰</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="articles.html">Articles</a></li>
-      <li><a href="charity.html" class="active">Embrace Relief</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <h1>Figeographie</h1>
+    <button class="hamburger" aria-label="Toggle navigation">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="charity.html" class="active">Magdi Yacoub Heart Foundation</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <div class="content-box">
-      <h1>Embrace Relief</h1>
+      <h1>Magdi Yacoub Heart Foundation</h1>
 
-      <img src="embrace_relief_images/foh_banner.jpg" alt="Embrace Relief Banner" class="banner" />
-      <p class="caption">Courtesy of Embrace Relief</p>
+      <img src="embrace_relief_images/foh_banner.jpg" alt="Magdi Yacoub Heart Foundation Banner" class="banner" />
+      <p class="caption">Courtesy of Magdi Yacoub Heart Foundation</p>
 
       <p>
         Every drop of clean water unlocks health, hope, and opportunity. Yet more than 800 million people still live without safe water, risking deadly disease and daily hardship.
       </p>
       <p>
-        Embrace Relief’s Clean Water Initiative turns generosity into lasting change by drilling and repairing 
+        Magdi Yacoub Heart Foundation’s Clean Water Initiative turns generosity into lasting change by drilling and repairing 
         deep‑aquifer wells across Africa. When you make a water well donation, you give families time, health, and a future.
-        Since 2013, Embrace Relief has provided clean, safe water to over 1,000,000 people, transforming lives in 
+        Since 2013, Magdi Yacoub Heart Foundation has provided clean, safe water to over 1,000,000 people, transforming lives in 
         communities that once struggled daily for this basic necessity. Building on that success, 
-        Figeographie partnered with the Clean Water Initiative in 2025 to help providing water access to 
-        people in Egypt, a country where reliance on the heaviliy polluted Nile is detrimental for the health of the people.
+        Figeographie partnered with the Clean Water Initiative in 2025 to help provide water access to 
+        people in Egypt, a country where reliance on the heavily polluted Nile is detrimental for the health of the people.
       </p>
 
       <div class="image-wrap">
         <img src="embrace_relief_images/kids_drinking.jpg" alt="Well Repair" />
-        <p class="caption">Courtesy of Embrace Relief</p>
+        <p class="caption">Courtesy of Magdi Yacoub Heart Foundation</p>
       </div>
 
-      <h2 class="left">Why Building a Well Matters</h2>
-
+      <h2>Why Building a Well Matters</h2>
       <p>
         Restoring a damaged well is cost-effective and powerful. 
         For just $3,000, you can bring an entire well to life, 
@@ -179,7 +222,7 @@
 
       <h2>Donate Today!</h2>
       <p>
-        All donations go directly to Embrace Relief's <em>Fountains of Hope</em> initiative,
+        All donations go directly to Magdi Yacoub Heart Foundation's <em>Fountains of Hope</em> initiative,
         which has a proven track record of successful well repairs and community impact.
       </p>
 
@@ -188,13 +231,12 @@
   </main>
 
   <script>
-  const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
 
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
-
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>

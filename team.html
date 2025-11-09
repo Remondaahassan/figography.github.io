@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="mobile.css">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Team | Figeographie</title>
+  <link rel="stylesheet" href="mobile.css">
+
   <!-- Google Font: Nanum Myeongjo -->
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
@@ -24,6 +24,7 @@
       line-height: 1.6;
     }
 
+    /* ---------- HEADER ---------- */
     header {
       background: #ffffff;
       border-bottom: 2px solid #e0e0e0;
@@ -31,6 +32,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Logo left, nav right */
     }
 
     header h1 {
@@ -44,9 +48,8 @@
       list-style: none;
       display: flex;
       gap: 1rem;
-      margin: 0.5rem 0 0;
+      margin: 0;
       padding: 0;
-      position: relative;
     }
 
     nav a {
@@ -58,60 +61,54 @@
       transition: background 0.3s;
     }
 
-    nav a:hover, nav a.active {
+    nav a:hover,
+    nav a.active {
       background: #e8f5e9;
       color: #1b5e20;
     }
 
-    /* Dropdown Styles */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-menu {
-      display: block;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #f9fff3;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      list-style: none;
-      padding: 10px 0;
-      min-width: 160px;
-      z-index: 100;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .dropdown:hover .dropdown-menu {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .dropdown-menu li a {
-      display: block;
-      padding: 8px 16px;
-      color: #2c3e50;
-      font-weight: 500;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .dropdown-menu li a:hover {
-      background: #e8f5e9;
-      color: #1b5e20;
-    }
-
-    .about-header h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin: 30px 0;
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
       color: #2c3e50;
     }
 
-    /* Card style for sections */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 999;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.5rem;
+      }
+    }
+
+    /* ---------- CARDS ---------- */
     .card {
       max-width: 1000px;
       margin: 40px auto;
@@ -127,7 +124,6 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     }
 
-    /* About container using flexbox */
     .about-container {
       display: flex;
       flex-wrap: wrap;
@@ -157,7 +153,6 @@
       text-align: justify;
     }
 
-    /* Divider between sections */
     .divider {
       width: 80%;
       max-width: 800px;
@@ -167,94 +162,11 @@
       border-radius: 1px;
     }
 
-    /* Quote Section */
-    .quote-section {
+    .about-header h1 {
       text-align: center;
-      padding: 40px 20px;
-    }
-
-    .quote-card {
-      background: linear-gradient(to right, #d4e8c2, #f1fbe3);
-      font-style: italic;
-      font-size: 22px;
-      color: #3b4a2c;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
-
-    .quote-card footer {
-      margin-top: 10px;
-      font-style: normal;
-      font-weight: bold;
-      color: #2a3b1e;
-    }
-
-    /* Timeline Section */
-    .timeline-section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    .timeline-section h2 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 40px;
-      color: #2a3b1e;
-    }
-
-    .timeline-card {
-      background-color: #f9fff3;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      padding: 40px 30px;
-    }
-
-    .timeline {
-      border-left: 4px solid #5c8a3e;
-      margin-left: 20px;
-      padding-left: 30px;
-      position: relative;
-    }
-
-    .timeline-item {
-      margin-bottom: 30px;
-      position: relative;
-      padding-left: 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -34px;
-      top: 5px;
-      width: 16px;
-      height: 16px;
-      background-color: #5c8a3e;
-      border-radius: 50%;
-    }
-
-    .timeline-item .year {
-      font-weight: bold;
-      color: #5c8a3e;
-      font-size: 18px;
-    }
-
-    .timeline-item p {
-      margin: 5px 0 0;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0);
+      font-size: 2rem;
+      margin: 30px 0;
+      color: #2c3e50;
     }
 
     @media (max-width: 768px) {
@@ -267,7 +179,6 @@
         text-align: center;
       }
 
-
       .about-image {
         max-width: 80%;
         margin-bottom: 20px;
@@ -275,56 +186,38 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <div class="name"><h1>Figeographie</h1></div>
+  <h1>Figeographie</h1>
   <button class="hamburger" aria-label="Toggle navigation">☰</button>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="articles.html">Articles</a></li>
-      <li><a href="charity.html" class="active">Embrace Relief</a></li>
+      <li><a href="charity.html">Magdi Yacoub Heart Foundation</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="team.html" class="active">Our Team</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-
-  <!-- Quote Card -->
-  <!--<section class="quote-section">
-    <div class="quote-card">
-      <blockquote>
-        “Look deep into nature, and then you will understand everything better.”
-        <footer>— Albert Einstein</footer>
-      </blockquote>
-    </div>
-  </section> -->
-
   <div class="about-header">
     <h1>Team</h1>
   </div>
 
-  <!-- About Card -->
+  <!-- Remonda Hassan -->
   <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Remonda Hassan — Founder</h1>
-        <p>
-          My name is Remonda, and I created <strong>Figeographie</strong> to showcase the extraordinary world that we live in.
-        </p>
-        <p>
-          The name <i>“Figeographie” </i>was inspired by the first deliberate photo I ever took — a fig on the ground during a walk to school with my sister.
-          Each day, we would pass a beautiful fig tree bursting with ripe fruit. Many would fall, and we’d look for the uncracked ones to snack on as we walked. My appreciation for our world blossomed from that simple joy.
-        </p>
-        <p>
-          That fig, and that moment, captured the joy and sweetness I find in nature. It became the symbol of my love for photography and my desire to make this simple peace and joy ubiquitous globally.
-        </p>
-        
+        <h1>Remonda Hassan — Founder</h1>
+        <p>My name is Remonda, and I created <strong>Figeographie</strong> to showcase the extraordinary world that we live in.</p>
+        <p>The name <i>“Figeographie” </i>was inspired by the first deliberate photo I ever took — a fig on the ground during a walk to school with my sister. Each day, we would pass a beautiful fig tree bursting with ripe fruit. Many would fall, and we’d look for the uncracked ones to snack on as we walked. My appreciation for our world blossomed from that simple joy.</p>
+        <p>That fig, and that moment, captured the joy and sweetness I find in nature. It became the symbol of my love for photography and my desire to make this simple peace and joy ubiquitous globally.</p>
       </div>
       <div class="about-image">
         <img src="remonda_hassan/remonda.jpg" alt="Remonda" />
@@ -332,12 +225,12 @@
     </div>
   </div>
 
+  <!-- Hend Hassan -->
   <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Hend Hassan — Charity Director</h1>
-        <p> In Progress</p>
+        <h1>Hend Hassan — Charity Director</h1>
+        <p>In Progress</p>
       </div>
       <div class="about-image">
         <img src="kai_pedrosa/autumn_leaves.JPG" alt="Hend" />
@@ -345,12 +238,12 @@
     </div>
   </div>
 
-   <div class="card about-card">
+  <!-- Mariem Hassan -->
+  <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Mariem Hassan — Photographer & Writer</h1>
-        <p> In progress</p>
+        <h1>Mariem Hassan</h1>
+        <p>In progress</p>
       </div>
       <div class="about-image">
         <img src="remonda_hassan/fig.jpg" alt="Mariem" />
@@ -358,16 +251,13 @@
     </div>
   </div>
 
+  <!-- Seneca Wattanapanich -->
   <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Seneca Wattanapanich — Photographer</h1>
-      <br>
-        <p> My name is Seneca, and I joined Figeographie because I wanted to share my love for nature photography.</p>
-        <p> My passion stemmed from my dad. I began taking photos when I was just 11 years old. He introduced this art to me and soon 
-          enough it became more than just a hobby! It's a way for me to preserve and continue our little tradition that means a lot to me.
-        Now its a meaningful part of family trips and I can document the world as we explore!</p>
+        <h1>Seneca Wattanapanich</h1>
+        <p>My name is Seneca, and I joined Figeographie because I wanted to share my love for nature photography.</p>
+        <p>My passion stemmed from my dad. I began taking photos when I was just 11 years old. He introduced this art to me and soon enough it became more than just a hobby! It's a way for me to preserve and continue our little tradition that means a lot to me. Now it's a meaningful part of family trips and I can document the world as we explore!</p>
       </div>
       <div class="about-image">
         <img src="seneca_wattanapanich/geyser.jpg" alt="Seneca" />
@@ -375,14 +265,12 @@
     </div>
   </div>
 
+  <!-- Cate Wells -->
   <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Cate Wells — Photographer</h1>
-        <p> I find inspiration in creativity and the outdoors. I love expressing myself through art, exploring nature on hikes, and staying active by playing volleyball. 
-          Being surrounded by beauty, whether it’s in a painting or a mountain view, reminds me of how precious out world is. 
-          That’s why I believe saving the Earth is our responsibility. It is our shared home, and we all have a part in protecting it.</p>
+        <h1>Cate Wells</h1>
+        <p>I find inspiration in creativity and the outdoors. I love expressing myself through art, exploring nature on hikes, and staying active by playing volleyball. Being surrounded by beauty, whether it’s in a painting or a mountain view, reminds me of how precious our world is. That’s why I believe saving the Earth is our responsibility. It is our shared home, and we all have a part in protecting it.</p>
       </div>
       <div class="about-image">
         <img src="cate_wells/cate_pic.jpeg" alt="Cate" />
@@ -390,15 +278,12 @@
     </div>
   </div>
 
-   <div class="card about-card">
+  <!-- Deema Abualsoud -->
+  <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Deema Abualsoud</h1>
-        <p> I am a incredibly driven person who is very passionate about animals, art, 
-          and boxing. I aspire to be a veterinarian to help animals and their families. 
-          I joined Figeographie to help spread awareness to others in hope of building our 
-          team to expand our project.</p>
+        <h1>Deema Abualsoud</h1>
+        <p>I am an incredibly driven person who is very passionate about animals, art, and boxing. I aspire to be a veterinarian to help animals and their families. I joined Figeographie to help spread awareness to others in hope of building our team to expand our project.</p>
       </div>
       <div class="about-image">
         <img src="deema/deema_profile.jpg" alt="Deema" />
@@ -406,19 +291,12 @@
     </div>
   </div>
 
-
-
+  <!-- Kai Pedrosa -->
   <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Kai Pedrosa</h1>
-        <p> I am a firm believer in sustainability and social justice which is 
-          exactly why I joined Figeographie. These values drive most decisions I make 
-          and, as an avid motorsport fan, are the basis of my life's aspirations. I aim to make 
-          sustainability the top priority for racing teams and fans alike to keep both the planet earth 
-          and these incredible sports in top shape. With Figeographie, I hope I can share my passion for 
-          environmentalism through fascinating photography.</p>
+        <h1>Kai Pedrosa</h1>
+        <p>I am a firm believer in sustainability and social justice which is exactly why I joined Figeographie. These values drive most decisions I make and, as an avid motorsport fan, are the basis of my life's aspirations. I aim to make sustainability the top priority for racing teams and fans alike to keep both the planet Earth and these incredible sports in top shape. With Figeographie, I hope I can share my passion for environmentalism through fascinating photography.</p>
       </div>
       <div class="about-image">
         <img src="kai_pedrosa/kai_profile.JPG" alt="Kai" />
@@ -426,50 +304,21 @@
     </div>
   </div>
 
+  <!-- Jadyn J. -->
   <div class="card about-card">
     <div class="about-container">
       <div class="about-text">
-        
-      <h1>Jadyn J.</h1>
-        <p>Hi, my name is Jadyn! I joined Figeographie to raise awareness and action for sustainability.
-          <br>
-        I am very interested in social and environmental justice. When I heard about Figeographie, 
-        I was amazed and inspired by the initiative. I joined Figeographie because I wanted to use my 
-        resources and this outlet to share more ideas about sustainability and raise awareness and 
-        funds for social-environmental causes.</p>
+        <h1>Jadyn J.</h1>
+        <p>Hi, my name is Jadyn! I joined Figeographie to raise awareness and action for sustainability. I am very interested in social and environmental justice. When I heard about Figeographie, I was amazed and inspired by the initiative. I joined Figeographie because I wanted to use my resources and this outlet to share more ideas about sustainability and raise awareness and funds for social-environmental causes.</p>
       </div>
       <div class="about-image">
-        <img src="jadyn/jadyn_profile.jpeg" alt="Deema" />
+        <img src="jadyn/jadyn_profile.jpeg" alt="Jadyn" />
       </div>
     </div>
   </div>
 
   <div class="divider"></div>
-
-
-  <div class="divider"></div>
-
 </main>
-
-<script>
-  const timelineItems = document.querySelectorAll('.timeline-item');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        const item = entry.target;
-        const index = Array.from(timelineItems).indexOf(item);
-        item.style.transitionDelay = `${index * 0.2}s`;
-        item.classList.add('visible');
-        observer.unobserve(item); 
-      }
-    });
-  }, { threshold: 0.5 });
-
-  timelineItems.forEach(item => {
-    observer.observe(item);
-  });
-</script>
 
 <script>
   const hamburger = document.querySelector('.hamburger');
