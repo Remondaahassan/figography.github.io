@@ -7,224 +7,287 @@
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Nanum Myeongjo', serif;
-      overflow: hidden;
-      height: 100vh;
+  body {
+    font-family: 'Nanum Myeongjo', serif;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .glassy-btn {
+    padding: 12px 12px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .glassy-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .slide .btn-group {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 10px;
+    text-align: right;
+    z-index: 3;
+    background: rgba(0,0,0,0.3);
+    max-width: 80%;
+  }
+
+  .slideshow-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    color: white;
+  }
+
+  .overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .overlay p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .prev { left: 20px; }
+  .next { right: 20px; }
+
+  .dots {
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .dot {
+    height: 14px;
+    width: 14px;
+    margin: 0 5px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .dot.active { background-color: white; }
+
+  /* Header with right-aligned nav */
+  header {
+    background: #ffffff;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    font-family: 'Times New Roman', serif;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    display: inline-block;
+    text-align: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+
+  nav a:hover,
+  nav a.active {
+    background: #e8f5e9;
+    color: #1b5e20;
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2c3e50;
+  }
+
+  /* ---------- MOBILE OPTIMIZATION ---------- */
+  @media (max-width: 1024px) {
+    .overlay {
+      width: 60%;
+      padding: 20px;
     }
+
+    .overlay h1 { font-size: 1.8rem; }
+    .overlay p { font-size: 1rem; }
+  }
+
+  @media (max-width: 768px) {
+    body { overflow-y: auto; height: auto; }
+
+    .hamburger { display: block; }
+
+    nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      background: #fff;
+      z-index: 999;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    nav.open { display: block; }
+
+    nav ul {
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+
+    nav a { display: block; padding: 0.5rem; }
+
+    .overlay {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .overlay h1 { font-size: 1.5rem; margin-bottom: 10px; }
+    .overlay p { font-size: 0.95rem; }
 
     .glassy-btn {
-      padding: 12px 12px;
-      border: none;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.25);
-      color: #fff;
-      font-size: 20px;
-      font-weight: bold;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .glassy-btn:hover {
-      background: rgba(255, 255, 255, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .slide > .glassy-btn {
-      position: absolute;
-      bottom: 17%;
-      left: 5%;
+      font-size: 1rem;
+      padding: 10px 14px;
     }
 
     .slide .btn-group {
-      position: absolute;
-      bottom: 17%;
-      left: 5%;
-      display: flex;
-      gap: 16px;
-    }
-
-    .caption {
-      position: absolute;
-      top: 97%;
-      right: 1%;
-      transform: translateY(-50%);
-      max-width: 25%;
-      color: white;
-      font-size: 1rem;
-      padding: 10px 15px;
-      border-radius: 10px;
-      text-align: right;
-      z-index: 3;
-    }
-
-    .slideshow-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .slides {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
-      width: 100%;
-      height: 100%;
-    }
-
-    .slide {
-      position: relative;
-      min-width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      flex-shrink: 0;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      transform: translateY(-50%);
-      width: 40%;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-      color: white;
-    }
-
-    .overlay h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .overlay p {
-      font-size: 1.2rem;
-      line-height: 1.5;
+      position: static;
+      justify-content: center;
+      margin-top: 1rem;
     }
 
     .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
-      color: white;
-      border: none;
-      font-size: 32px;
-      padding: 14px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 2;
-    }
-    .prev { left: 20px; }
-    .next { right: 20px; }
-
-    .dots {
-      text-align: center;
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      z-index: 2;
-    }
-    .dot {
-      height: 14px;
-      width: 14px;
-      margin: 0 5px;
-      background-color: rgba(255,255,255,0.5);
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-    }
-    .dot.active { background-color: white; }
-
-    /* Header with right-aligned nav */
-    header {
-      background: #ffffff;
-      border-bottom: 2px solid #e0e0e0;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      font-size: 1.6rem;
+      padding: 8px;
     }
 
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #2c3e50;
-      font-family: 'Times New Roman', serif;
+    .caption {
+      font-size: 0.8rem;
+      max-width: 90%;
+      bottom: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .overlay {
+      width: 90%;
+      padding: 15px;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
+    .overlay h1 { font-size: 1.3rem; }
+    .overlay p { font-size: 0.9rem; line-height: 1.4; }
+
+    .glassy-btn {
+      font-size: 0.9rem;
+      padding: 8px 12px;
     }
 
-    nav a {
-      display: inline-block;
-      text-align: center;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
+    .prev, .next { font-size: 1.3rem; padding: 6px; }
+  }
+</style>
 
-    nav a:hover,
-    nav a.active {
-      background: #e8f5e9;
-      color: #1b5e20;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #2c3e50;
-    }
-
-    @media (max-width: 768px) {
-      .hamburger { display: block; }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 0; /* aligns mobile menu to the right */
-        width: 100%;
-        background: #fff;
-        z-index: 999;
-        border-top: 1px solid #e0e0e0;
-      }
-
-      nav.open { display: block; }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 0.75rem 1rem;
-      }
-
-      nav a { display: block; padding: 0.5rem; }
-    }
-  </style>
 </head>
 
 <body>
