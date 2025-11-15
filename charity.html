@@ -80,7 +80,7 @@
         display: none;
         position: absolute;
         top: 70px;
-        right: 0; /* align dropdown to right */
+        right: 0;
         width: 100%;
         background: #fff;
         z-index: 999;
@@ -162,6 +162,50 @@
       background: #1b5e20;
       transform: translateY(-2px);
     }
+
+
+    /* =====================================================
+       ✅ MOBILE CENTERING FIX
+       ===================================================== */
+    @media (max-width: 768px) {
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+      }
+
+      main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .content-box {
+        width: 94%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+        text-align: left; /* keep paragraphs readable */
+      }
+
+      header {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      nav ul {
+        text-align: left;
+      }
+
+      .donate-btn {
+        margin-left: 0;
+        display: block;
+        margin: 1.5rem auto 0 auto; /* fully centered */
+      }
+    }
+
   </style>
 </head>
 

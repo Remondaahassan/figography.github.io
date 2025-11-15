@@ -8,432 +8,407 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'Nanum Myeongjo', serif;
-    overflow: hidden;
-    height: 100vh;
-  }
+body {
+  font-family: 'Nanum Myeongjo', serif;
+  overflow: hidden;
+  height: 100vh;
+}
 
-  .glassy-btn {
-    padding: 12px 12px;
-    border: none;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.25);
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
+.glassy-btn {
+  padding: 12px 12px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 
-  .glassy-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-  }
+.glassy-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
 
-  .slide .btn-group {
+/* Slide buttons under the text */
+.slide .btn-group {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  z-index: 2;
+}
+
+.caption {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 10px;
+  text-align: right;
+  z-index: 3;
+  background: rgba(0,0,0,0.3);
+  max-width: 80%;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  width: 40%;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 32px;
+  padding: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  z-index: 2;
+}
+
+.dot {
+  height: 14px;
+  width: 14px;
+  margin: 0 5px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active { background-color: white; }
+
+/* Header with right-aligned nav (same thickness as charity page) */
+header {
+  background: #ffffff;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  font-family: 'Times New Roman', serif;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  text-align: center;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2c3e50;
+}
+
+/* Mobile Optimization */
+@media (max-width: 1024px) {
+  .overlay { width: 60%; padding: 20px; }
+  .overlay h1 { font-size: 1.8rem; }
+  .overlay p { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  body { overflow-y: auto; height: auto; }
+
+  .hamburger { display: block; }
+
+  nav {
+    display: none;
     position: absolute;
-    bottom: 15%;
-    left: 5%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .caption {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    color: white;
-    font-size: 0.9rem;
-    padding: 6px 10px;
-    border-radius: 10px;
-    text-align: right;
-    z-index: 3;
-    background: rgba(0,0,0,0.3);
-    max-width: 80%;
-  }
-
-  .slideshow-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .slides {
-    display: flex;
-    transition: transform 0.6s ease-in-out;
+    top: 70px;
+    right: 0;
     width: 100%;
-    height: 100%;
+    background: #fff;
+    z-index: 999;
+    border-top: 1px solid #e0e0e0;
   }
 
-  .slide {
-    position: relative;
-    min-width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    flex-shrink: 0;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-    width: 40%;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    color: white;
-  }
-
-  .overlay h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-  }
-
-  .overlay p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-  }
-
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
-    color: white;
-    border: none;
-    font-size: 32px;
-    padding: 14px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 2;
-  }
-
-  .prev { left: 20px; }
-  .next { right: 20px; }
-
-  .dots {
-    text-align: center;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    z-index: 2;
-  }
-
-  .dot {
-    height: 14px;
-    width: 14px;
-    margin: 0 5px;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-  }
-
-  .dot.active { background-color: white; }
-
-  /* Header with right-aligned nav */
-  header {
-    background: #ffffff;
-    border-bottom: 2px solid #e0e0e0;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #2c3e50;
-    font-family: 'Times New Roman', serif;
-  }
+  nav.open { display: block; }
 
   nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
   }
 
-  nav a {
-    display: inline-block;
+  nav a { display: block; padding: 0.5rem; }
+
+  .overlay {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    padding: 18px;
     text-align: center;
-    padding: 0.3rem 0.8rem;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 500;
-    transition: background 0.3s;
   }
 
-  nav a:hover,
-  nav a.active {
-    background: #e8f5e9;
-    color: #1b5e20;
+  .overlay h1 { font-size: 1.5rem; margin-bottom: 10px; }
+  .overlay p { font-size: 0.95rem; }
+
+  .slide .btn-group { justify-content: center; }
+
+  .glassy-btn {
+    font-size: 1rem;
+    padding: 10px 14px;
   }
 
-  .hamburger {
-    display: none;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #2c3e50;
-  }
+  .prev, .next { font-size: 1.6rem; padding: 8px; }
+  .caption { font-size: 0.8rem; max-width: 90%; bottom: 8px; }
+}
 
-  /* ---------- MOBILE OPTIMIZATION ---------- */
-  @media (max-width: 1024px) {
-    .overlay {
-      width: 60%;
-      padding: 20px;
-    }
-
-    .overlay h1 { font-size: 1.8rem; }
-    .overlay p { font-size: 1rem; }
-  }
-
-  @media (max-width: 768px) {
-    body { overflow-y: auto; height: auto; }
-
-    .hamburger { display: block; }
-
-    nav {
-      display: none;
-      position: absolute;
-      top: 70px;
-      right: 0;
-      width: 100%;
-      background: #fff;
-      z-index: 999;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    nav.open { display: block; }
-
-    nav ul {
-      flex-direction: column;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-    }
-
-    nav a { display: block; padding: 0.5rem; }
-
-    .overlay {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 85%;
-      padding: 18px;
-      text-align: center;
-    }
-
-    .overlay h1 { font-size: 1.5rem; margin-bottom: 10px; }
-    .overlay p { font-size: 0.95rem; }
-
-    .glassy-btn {
-      font-size: 1rem;
-      padding: 10px 14px;
-    }
-
-    .slide .btn-group {
-      position: static;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .prev, .next {
-      font-size: 1.6rem;
-      padding: 8px;
-    }
-
-    .caption {
-      font-size: 0.8rem;
-      max-width: 90%;
-      bottom: 8px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .overlay {
-      width: 90%;
-      padding: 15px;
-    }
-
-    .overlay h1 { font-size: 1.3rem; }
-    .overlay p { font-size: 0.9rem; line-height: 1.4; }
-
-    .glassy-btn {
-      font-size: 0.9rem;
-      padding: 8px 12px;
-    }
-
-    .prev, .next { font-size: 1.3rem; padding: 6px; }
-  }
+@media (max-width: 480px) {
+  .overlay { width: 90%; padding: 15px; }
+  .overlay h1 { font-size: 1.3rem; }
+  .overlay p { font-size: 0.9rem; line-height: 1.4; }
+  .glassy-btn { font-size: 0.9rem; padding: 8px 12px; }
+  .prev, .next { font-size: 1.3rem; padding: 6px; }
+}
 </style>
-
 </head>
 
 <body>
-  <header>
-    <h1>Figeographie</h1>
-    <button class="hamburger" aria-label="Toggle navigation">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="charity.html">Magdi Yacoub Heart Foundation</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <h1>Figeographie</h1>
+  <button class="hamburger" aria-label="Toggle navigation">☰</button>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="charity.html">Magdi Yacoub Heart Foundation</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <div class="slideshow-container" id="slideshow">
-    <div class="slides" id="slides">
+<div class="slideshow-container" id="slideshow">
+  <div class="slides" id="slides">
 
-      <div class="slide" style="background-image: url('kai_pedrosa/butterfly.jpg');" data-caption="Photo by Kai Pedrosa">
-        <div class="overlay">
-          <h1>How We Originated</h1>
-          <p>In June 2025, Remonda Hassan created Figeographie. It was originally meant to showcase her nature photography. The name 
-            “Figeographie” was inspired by the first deliberate photo she took — a fig on the ground while walking to school with her sister.</p>
-        </div>
-        
-          <div class="btn-group">
-        <a href = "gallery.html"><button class="glassy-btn">GALLERY</button></a>
+    <!-- Slide 1 -->
+    <div class="slide" style="background-image: url('kai_pedrosa/butterfly.jpg');" data-caption="Photo by Kai Pedrosa">
+      <div class="overlay">
+        <h1>How We Originated</h1>
+        <p>In June 2025, Remonda Hassan created Figeographie. It was originally meant to showcase her nature photography. The name 
+          “Figeographie” was inspired by the first deliberate photo she took — a fig on the ground while walking to school with her sister.</p>
+        <div class="btn-group">
+          <a href="gallery.html"><button class="glassy-btn">GALLERY</button></a>
         </div>
       </div>
-        
+    </div>
 
-      <div class="slide" style="background-image: url('deema/Resized_20250831_065514.JPEG');" data-caption="Photo by Deema Abualsoud">
-        <div class="overlay">
-          <h1>Why We Proceeded</h1>
-          <p>While coding the site, Remonda remembered an article she wrote in 8th grade about the detriments of fast fashion on the global health, 
+    <!-- Slide 2 -->
+    <div class="slide" style="background-image: url('deema/Resized_20250831_065514.JPEG');" data-caption="Photo by Deema Abualsoud">
+      <div class="overlay">
+        <h1>Why We Proceeded</h1>
+        <p>While coding the site, Remonda remembered an article she wrote in 8th grade about the detriments of fast fashion on the global health, 
           particularly in population-dense countries like Egypt where air, land, and water pollution impact cardiovascular and lung health. 
           She became keen on establishing a medium through which she could practice her love of spreading the beauty of photography while 
           also making real-world impact on society.</p>
-          </div>
-        
-          <div class="btn-group">
-        <a href = "articles.html"><button class="glassy-btn">ARTICLES</button></a>
-        </div>
-        
-        
-        
-      </div>
-
-      <div class="slide" style="background-image: url('cate_wells/Antelope\ Canyon\ 3.jpg');" data-caption="Photo by Cate Wells">
-        <div class="overlay">
-          <h1>Where We Are Now</h1>
-          <p>Today, Figeographie is run by volunteers who combine nature photography, environmental articles, and a charity collaboration 
-            with Magdi Yacoub Heart Foundation to help provide Egyptian children facing heart disease with absolutely free care and treatment.</p>
-        </div>
         <div class="btn-group">
-         <a href = "charity.html"><button class="glassy-btn">MAGDI YACOUB HEART FOUNDATION</button></a> 
-         <a href = "contact.html"><button class="glassy-btn">CONTACT US</button></a> 
+          <a href="articles.html"><button class="glassy-btn">ARTICLES</button></a>
         </div>
       </div>
-
     </div>
 
-    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="next" onclick="moveSlide(1)">&#10095;</button>
-    <div class="dots" id="dots"></div>
+    <!-- Slide 3 -->
+    <div class="slide" style="background-image: url('cate_wells/Antelope\ Canyon\ 3.jpg');" data-caption="Photo by Cate Wells">
+      <div class="overlay">
+        <h1>Where We Are Now</h1>
+        <p>Today, Figeographie is run by volunteers who combine nature photography, environmental articles, and a charity collaboration 
+          with Magdi Yacoub Heart Foundation to help provide Egyptian children facing heart disease with absolutely free care and treatment.</p>
+        <div class="btn-group">
+          <a href="charity.html"><button class="glassy-btn">MAGDI YACOUB HEART FOUNDATION</button></a> 
+          <a href="contact.html"><button class="glassy-btn">CONTACT US</button></a> 
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="caption" id="caption"></div>
+  <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+  <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  <div class="dots" id="dots"></div>
+</div>
 
-  <script>
-    let currentIndex = 0;
-    const slides = document.getElementById("slides");
-    const totalSlides = slides.children.length;
-    const dotsContainer = document.getElementById("dots");
-    let autoPlayInterval;
+<div class="caption" id="caption"></div>
 
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      dot.onclick = () => { goToSlide(i); resetAutoPlay(); };
-      dotsContainer.appendChild(dot);
-    }
+<script>
+let currentIndex = 0;
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
+const dotsContainer = document.getElementById("dots");
+let autoPlayInterval;
 
-    function updateSlide() {
-      slides.style.transform = `translateX(${-currentIndex * 100}%)`;
-      document.querySelectorAll(".dot").forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-      });
-      captionEl.textContent = slides.children[currentIndex].dataset.caption;
-    }
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dot.onclick = () => { goToSlide(i); resetAutoPlay(); };
+  dotsContainer.appendChild(dot);
+}
 
-    function moveSlide(step) {
-      currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-      updateSlide();
-      resetAutoPlay();
-    }
+function updateSlide() {
+  slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+  document.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentIndex);
+  });
+  captionEl.textContent = slides.children[currentIndex].dataset.caption;
+}
 
-    function goToSlide(index) {
-      currentIndex = index;
-      updateSlide();
-    }
+function moveSlide(step) {
+  currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+  updateSlide();
+  resetAutoPlay();
+}
 
-    function startAutoPlay() {
-      autoPlayInterval = setInterval(() => {
-        moveSlide(1);
-      }, 5000);
-    }
+function goToSlide(index) {
+  currentIndex = index;
+  updateSlide();
+}
 
-    function resetAutoPlay() {
-      clearInterval(autoPlayInterval);
-      startAutoPlay();
-    }
+function startAutoPlay() {
+  autoPlayInterval = setInterval(() => {
+    moveSlide(1);
+  }, 5000);
+}
 
-    let startX = 0;
-    const slideshow = document.getElementById("slideshow");
+function resetAutoPlay() {
+  clearInterval(autoPlayInterval);
+  startAutoPlay();
+}
 
-    slideshow.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
+let startX = 0;
+const slideshow = document.getElementById("slideshow");
 
-    slideshow.addEventListener("touchend", (e) => {
-      let endX = e.changedTouches[0].clientX;
-      let diff = startX - endX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) moveSlide(1);
-        else moveSlide(-1);
-      }
-    });
+slideshow.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
 
-    const captionEl = document.getElementById("caption");
+slideshow.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) moveSlide(1);
+    else moveSlide(-1);
+  }
+});
 
-    updateSlide();
-    startAutoPlay();
-  </script>
+const captionEl = document.getElementById("caption");
 
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
+updateSlide();
+startAutoPlay();
+</script>
 
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+</script>
 </body>
 </html>
