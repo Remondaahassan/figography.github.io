@@ -29,7 +29,7 @@
       z-index: 1000;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Logo left, nav right */
+      justify-content: space-between;
     }
 
     header h1 {
@@ -130,7 +130,8 @@
       text-align: center;
       font-size: 0.85rem;
       color: #777;
-      margin-top: 0.25rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
 
     .image-wrap {
@@ -145,24 +146,43 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .donate-btn {
+    /* =====================================================
+       ✅ Donation Section
+       ===================================================== */
+    .donation-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .donation-section .donate-btn {
       display: inline-block;
       background: #2e7d32;
       color: white;
-      padding: 0.75rem 1.5rem;
-      margin-left: 38%;
-      font-size: 1.1rem;
+      padding: 0.75rem 2rem;
+      font-size: 1.2rem;
       border-radius: 8px;
       text-decoration: none;
-      margin-top: 1rem;
+      text-align: center;
       transition: background 0.3s, transform 0.2s;
+      width: auto;
+      max-width: 300px;
     }
 
-    .donate-btn:hover {
+    .donation-section .donate-btn:hover {
       background: #1b5e20;
       transform: translateY(-2px);
     }
 
+    .donation-section .caption {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+      max-width: 500px;
+    }
 
     /* =====================================================
        ✅ MOBILE CENTERING FIX
@@ -199,10 +219,15 @@
         text-align: left;
       }
 
-      .donate-btn {
-        margin-left: 0;
-        display: block;
-        margin: 1.5rem auto 0 auto; /* fully centered */
+      .donation-section .donate-btn {
+        width: 90%; /* button stretches nicely on mobile */
+        max-width: none;
+        padding: 0.75rem 0;
+      }
+
+      .donation-section .caption {
+        width: 90%;
+        margin: 0 auto;
       }
     }
 
@@ -228,13 +253,9 @@
 
   <main>
     <div class="content-box">
-
       <img src="articles_photos/MYA_logo_PMS@2x.png" alt="Magdi Yacoub Heart Foundation Banner" class="banner" />
-      
-       
 
-    
-<h2>The Magdi Yacoub Global Heart Foundation</h2>
+      <h2>The Magdi Yacoub Global Heart Foundation</h2>
       <p>
         The Magdi Yacoub Heart Foundation (MYF) – an Egyptian registered charity NGO – was founded in 2008 by Sir Magdi Yacoub, the late chemistry Nobel Prize 
         winner Dr. Ahmed Zewail, and Ambassador Mohamed Shaker. MYF is running one of the exceptional projects of enormous significance to the health and wellbeing 
@@ -243,81 +264,68 @@
         the Aswan Heart Centre model of care to the capital city. With the establishment of the Magdi Yacoub Global Heart Centre in Cairo, the foundation will be able 
         to triple the service and the amount of hearts saved, all free-of-charge and with the latest technology and technique in cardiovascular medical care. 
         MYGHC - Cairo will give the foundation the possibility to treat 12,000 patients, in contrast to 4,000 currently, and save more than three times as many lives.
-
-
       </p>
-      Here are some statistics from the Aswan Heart Centre:
+
+      <h3>Here are some statistics from the Aswan Heart Centre:</h3>
       <ul>
-        <li>The institution has a 4.5% mortality rate for open-heart surgery, compared to the global average of 8.3%. 
-        This statistic is on par with the best American and European hospitals.</li>
-  <li>An average of 49,000 outpatient consultations are provided annually, half of which are for children.</li>
-<li>An average of 4,600 surgical procedures and catheterizations performed on patients annually</li>
-<li>An average of 350 healthcare professionals trained annually through the Foundation's training programs.</li>
-<li>An average of 390,000 patients are seen and served at the Aswan Heart Centre each year.</li>
-
-</ul>
-
-
-
-      Here are the goals of the new Magdi Yacoub Global Heart Centre in Cairo:
-      <ul> 
-        <li>Accomodate up to 120,000 outpatients annually</li>
-      <li>Treat up to 12,000 patients annually</li>
-      <li>Give neonates a 95% chance of living a normal life</li>
-      <li>Triple the number of training graduates (from 550 currently to ~1750)</li>
-      <li>Develop an advanced scientific research center</li>
-
+        <li>The institution has a 4.5% mortality rate for open-heart surgery, compared to the global average of 8.3%. This statistic is on par with the best American and European hospitals.</li>
+        <li>An average of 49,000 outpatient consultations are provided annually, half of which are for children.</li>
+        <li>An average of 4,600 surgical procedures and catheterizations performed on patients annually.</li>
+        <li>An average of 350 healthcare professionals trained annually through the Foundation's training programs.</li>
+        <li>An average of 390,000 patients are seen and served at the Aswan Heart Centre each year.</li>
       </ul>
-      
-      </p>
+
+      <h3>Here are the goals of the new Magdi Yacoub Global Heart Centre in Cairo:</h3>
+      <ul> 
+        <li>Accomodate up to 120,000 outpatients annually.</li>
+        <li>Treat up to 12,000 patients annually.</li>
+        <li>Give neonates a 95% chance of living a normal life.</li>
+        <li>Triple the number of training graduates (from 550 currently to ~1750).</li>
+        <li>Develop an advanced scientific research center.</li>
+      </ul>
 
       <h2>Why Helping Kids with Heart Disease Matters</h2>
       <p>
-        
-Within Egypt, cardiovascular disease is the leading cause of death out of all 
-non-communicable diseases, responsible for 275,665 deaths in 2021 alone. Risk factors associated 
-with cardiovascular disease continue to rise at an alarming rate. Rheumatic heart diseases are 
-still responsible for approximately 2,000 deaths per year and of the 18,000 babies born with congenital 
-heart disease each year, 5,000 die due to the lack of proper facilities.
+        Within Egypt, cardiovascular disease is the leading cause of death out of all non-communicable diseases, responsible for 275,665 deaths in 2021 alone. Risk factors associated 
+        with cardiovascular disease continue to rise at an alarming rate. Rheumatic heart diseases are still responsible for approximately 2,000 deaths per year and of the 18,000 babies born with congenital 
+        heart disease each year, 5,000 die due to the lack of proper facilities.
       </p>
 
       <h2>What Figeographie is Doing</h2>
-         <p>
+      <p>
         Figeographie embodies the motto "Where Nature Meets Lens, Where Lens Meets Humanity" by photographing the world and writing blogs 
         on our website about environmental subjects, ranging from pollution to healthcare. However, we also believe in taking action to help humanity directly.
       </p>
-
-To expand our impact on humanity, Figeographie is a strong supporter of the Magdi Yacoub Heart Foundation's efforts in making all aspects of treatment for 
-congenital heart disease completely free for children in Egypt, the MENA region, and the GCC region. We are aiming to raise $10,000 to make this service a greater 
-blessing to all children who face the hardship of low oxygen in the blood, too many or too few blood vessels, faulty heart valves, and other difficulties.
       <p>
-
-We believe that the treasure of beauty is not just in the sight of the eyes, but in the action of human beings. Help support this cause to spread the beauty 
-of generosity to children in need of healthcare support.
+        To expand our impact on humanity, Figeographie is a strong supporter of the Magdi Yacoub Heart Foundation's efforts in making all aspects of treatment for 
+        congenital heart disease completely free for children in Egypt, the MENA region, and the GCC region. We are aiming to raise $10,000 to make this service a greater 
+        blessing to all children who face the hardship of low oxygen in the blood, too many or too few blood vessels, faulty heart valves, and other difficulties.
       </p>
       <p>
-      
+        We believe that the treasure of beauty is not just in the sight of the eyes, but in the action of human beings. Help support this cause to spread the beauty 
+        of generosity to children in need of healthcare support.
+      </p>
 
       <h2>Donate Today!</h2>
       <p>
         All donations go directly to The Magdi Yacoub Global Heart Foundation. Your support can save lives and give children a chance at a healthy future.
-<ul>
+      </p>
+      <ul>
+        <li>Donating $100 covers the cost of an outpatient consultation and an echocardiogram study. Over 45,000 outpatients are served at Aswan Heart Centre annually.</li>
+        <li>Donating $500 covers the cost of one advanced noninvasive diagnostic imaging for a patient. Annually, Aswan Heart Centre performs over 4,000 CTs or MRIs on patients.</li>
+        <li>Donating $1,000 covers half the cost of in-hospital medications for a patient during their hospital stay. Aswan Heart Centre accommodates over 4,500 patients annually for hospital stays.</li>
+        <li>Donating $5,000 covers the cost of a catheter operation or half the cost of a surgical operation at Aswan Heart Centre, where over 3,000 catheter operations are performed annually.</li>
+        <li>Donating $10,000 covers the cost of an open-heart surgical operation at Aswan Heart Centre, where over 1,000 surgical operations are performed annually.</li>
+      </ul>
 
-<li>  Donating $100 covers the cost of an outpatient consultation and an echocardiogram study. Over 45,000 outpatients are served at Aswan Heart Centre annually.</li>
-<li>Donating $500 covers the cost of one advanced noninvasive diagnostic imaging for a patient. Annually, Aswan Heart Centre performs over 4,000 CTs or MRIs on patients.</li>
+      <!-- Donation Section with Button + Caption -->
+      <div class="donation-section">
+        <a href="https://secure.givelively.org/donate/myaswan-inc/magdi-yacoub-global-heart-foundation-google-giving-program/remonda-hassan" target="_blank" class="donate-btn">Donate Now</a>
+        <p class="caption">
+          The Magdi Yacoub Global Heart Foundation is a US-based 501(c)(3) non-profit charity, and your donation can be claimed as a deduction on your US income tax return.
+        </p>
+      </div>
 
-<li>Donating $1,000 covers half the cost of in-hospital medications for a patient during their hospital stay. Aswan Heart Centre accommodates over 4,500 patients annually for hospital stays.</li>
-
-<li>Donating $5,000 covers the cost of a catheter operation or half the cost of a surgical operation at Aswan Heart Centre, where over 3,000 catheter operations are performed annually.</li>
-
-<li>Donating $10,000 covers the cost of an open-heart surgical operation at Aswan Heart Centre, where over 1,000 surgical operations are performed annually.</li>
-</ul>      
-</p>
-
-      <a href="https://secure.givelively.org/donate/myaswan-inc/magdi-yacoub-global-heart-foundation-google-giving-program/remonda-hassan" target="_blank" class="donate-btn"> Donate Now</a>
-    
-      <p class="caption">The Magdi Yacoub Global Heart Foundation is a US-based 501(c)(3) non-profit charity, and your donation can be claimed as a deduction on your US income 
-      tax return.</p>
     </div>
   </main>
 
@@ -329,6 +337,6 @@ of generosity to children in need of healthcare support.
       nav.classList.toggle('open');
     });
   </script>
-  
 </body>
 </html>
+
