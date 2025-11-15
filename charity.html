@@ -111,12 +111,15 @@
       padding: 2rem 2.5rem;
       border-radius: 14px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      box-sizing: border-box;
     }
 
     .content-box h1, 
-    .content-box h2 {
+    .content-box h2, 
+    .content-box h3 {
       color: #1b5e20;
       margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
       text-align: left;
       font-family: 'Nanum Myeongjo', serif;
     }
@@ -124,14 +127,6 @@
     .banner {
       width: 100%;
       border-radius: 14px;
-    }
-
-    .caption {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #777;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
     }
 
     .image-wrap {
@@ -156,6 +151,7 @@
       gap: 1rem;
       margin-top: 2rem;
       margin-bottom: 2rem;
+      text-align: center;
     }
 
     .donation-section .donate-btn {
@@ -177,15 +173,10 @@
       transform: translateY(-2px);
     }
 
-    .donation-section .caption {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #777;
-      max-width: 500px;
-    }
+  
 
     /* =====================================================
-       ✅ MOBILE CENTERING FIX
+       ✅ MOBILE IMPROVEMENTS
        ===================================================== */
     @media (max-width: 768px) {
 
@@ -204,10 +195,28 @@
       }
 
       .content-box {
-        width: 94%;
+        width: 95%;
         margin: 1rem auto;
-        padding: 1.5rem;
-        text-align: left; /* keep paragraphs readable */
+        padding: 1.5rem 1rem;
+        text-align: left;
+        line-height: 1.6;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      ul, ol {
+        padding-left: 1.2rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+
+      h2, h3 {
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
       }
 
       header {
@@ -219,18 +228,31 @@
         text-align: left;
       }
 
+      /* Center donation section on mobile */
+      .donation-section {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 2rem auto;
+        gap: 0.75rem;
+      }
+
       .donation-section .donate-btn {
-        width: 90%; /* button stretches nicely on mobile */
-        max-width: none;
-        padding: 0.75rem 0;
-      }
-
-      .donation-section .caption {
         width: 90%;
+        max-width: 300px;
         margin: 0 auto;
+        padding: 0.75rem 0;
+        display: block;
       }
-    }
 
+      .donation-section .tax-caption {
+  color: #888;        /* light grey */
+  font-size: 0.9rem;  /* slightly smaller */
+  margin-top: 0.5rem; /* optional spacing */
+}
+
+      
+    }
   </style>
 </head>
 
@@ -318,10 +340,10 @@
         <li>Donating $10,000 covers the cost of an open-heart surgical operation at Aswan Heart Centre, where over 1,000 surgical operations are performed annually.</li>
       </ul>
 
-      <!-- Donation Section with Button + Caption -->
+      <!-- Donation Section -->
       <div class="donation-section">
         <a href="https://secure.givelively.org/donate/myaswan-inc/magdi-yacoub-global-heart-foundation-google-giving-program/remonda-hassan" target="_blank" class="donate-btn">Donate Now</a>
-        <p class="caption">
+        <p class = "tax-caption">
           The Magdi Yacoub Global Heart Foundation is a US-based 501(c)(3) non-profit charity, and your donation can be claimed as a deduction on your US income tax return.
         </p>
       </div>
@@ -339,4 +361,3 @@
   </script>
 </body>
 </html>
-
