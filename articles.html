@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Articles | Figeographie</title>
   <link rel="stylesheet" href="mobile.css">
-  
-<!--favicon-->
-    <link rel="icon" type="image/png" href="articles_photos/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="articles_photos/favicon.svg" />
-<link rel="shortcut icon" href="articles_photos/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="articles_photos/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Figeographie" />
-<link rel="manifest" href="articles_photos/site.webmanifest" />
-<link rel="icon" type="image/png" href="articles_photos/web-app-manifest-192x192.png" sizes="192x192" />
-<link rel="icon" type="image/png" href="articles_photos/web-app-manifest-512x512.png" sizes="512x512" />
+
+  <!--favicon-->
+  <link rel="icon" type="image/png" href="articles_photos/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="articles_photos/favicon.svg" />
+  <link rel="shortcut icon" href="articles_photos/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="articles_photos/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Figeographie" />
+  <link rel="manifest" href="articles_photos/site.webmanifest" />
+  <link rel="icon" type="image/png" href="articles_photos/web-app-manifest-192x192.png" sizes="192x192" />
+  <link rel="icon" type="image/png" href="articles_photos/web-app-manifest-512x512.png" sizes="512x512" />
 
   <!-- Google Font: Nanum Myeongjo -->
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
       z-index: 1000;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Logo left, nav right */
+      justify-content: space-between;
     }
 
     header h1 {
@@ -73,7 +73,6 @@
       color: #1b5e20;
     }
 
-    /* Hamburger menu */
     .hamburger {
       display: none;
       font-size: 1.8rem;
@@ -92,7 +91,7 @@
         display: none;
         position: absolute;
         top: 70px;
-        right: 0; /* aligns dropdown to right */
+        right: 0;
         width: 100%;
         background: #fff;
         z-index: 999;
@@ -124,45 +123,91 @@
       font-family: 'Nanum Myeongjo', serif;
     }
 
+    /* NYT-style article list */
     .article-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
     .article-card {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
       text-decoration: none;
       color: inherit;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    .image-container {
+      position: relative;
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+
+    .image-container img {
+      width: 200px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .image-credit {
+      font-size: 10px;
+      color: black;
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      background-color: rgba(255,255,255,0.7);
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    .article-text {
+      flex: 1;
       display: flex;
       flex-direction: column;
-    }
-
-    .article-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-    }
-
-    .article-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
+      justify-content: space-between;
     }
 
     .article-title {
-      padding: 12px;
-      background-color: #f5f5f5;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
-      color: #333;
-      text-align: center;
+      color: #111;
+      margin-bottom: 6px;
+      line-height: 1.2;
+      word-wrap: break-word;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .article-card {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-container {
+        margin-right: 0;
+        margin-bottom: 12px;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+      }
+
+      .article-text {
+        align-items: center;
+        text-align: center;
+      }
     }
 
     footer {
@@ -196,20 +241,52 @@
   </div>
 
   <div class="article-grid">
-    <!-- Article Card 1 -->
+    <!-- Article 1 -->
     <a href="articles/sustainable_fashion.html" class="article-card">
-      <img src="articles_photos/clothing.jpeg" alt="Fast Fashion">
-      <div class="article-title">How Your Clothes are Drinking Your Water</div>
+      <div class="image-container">
+        <img src="articles_photos/clothing.jpeg" alt="Fast Fashion">
+        
+      </div>
+      <div class="article-text">
+        <div class="article-title">How Your Clothes are Drinking Your Water</div>
+        <div class="article-meta">By Remonda Hassan • Fashion & Environmental Science • April 11, 2022</div>
+      </div>
     </a>
 
+    <!-- Article 2 -->
     <a href="articles/nile_pollution.html" class="article-card">
-      <img src="articles_photos/nile_poll.jpg" alt="Nile River Pollution Crisis">
-      <div class="article-title">Nile River Pollution Crisis</div>
+      <div class="image-container">
+        <img src="articles_photos/nile_poll.jpg" alt="Nile River Pollution Crisis">
+        <div class="image-credit">Photo: Marc Ryckaert</div>
+      </div>
+      <div class="article-text">
+        <div class="article-title">Nile River Pollution Crisis</div>
+        <div class="article-meta">By Remonda Hassan • Environmental Crisis Reporting • September 16, 2025</div>
+      </div>
     </a>
 
+    <!-- Article 3 -->
     <a href="articles/ecocide.html" class="article-card">
-      <img src="articles_photos/ecocide.jpg" alt="Ecocide and AI">
-      <div class="article-title">AI and Ecocide: How Modern Technology and Our Daily Use of It Plays a Role in Environmental and Societal Destruction</div>
+      <div class="image-container">
+        <img src="articles_photos/tech.jpg" alt="Ecocide and AI">
+        <div class="image-credit">Photo: Victorgrigas</div>
+      </div>
+      <div class="article-text">
+        <div class="article-title">AI and Ecocide: How Our Use of Modern Tech Plays a Role in Environmental and Societal Destruction</div>
+        <div class="article-meta">By Jadyn J. • Tech & Environmental Ethics • October 15, 2025</div>
+      </div>
+    </a>
+
+    <!-- Article 4 -->
+    <a href="articles/beaver_dams.html" class="article-card">
+      <div class="image-container">
+        <img src="articles_photos/beaver_dam.jpg" alt="Beaver Dams">
+        <div class="image-credit">Photo: Alex A.</div>
+      </div>
+      <div class="article-text">
+        <div class="article-title">Beavers: Nature’s Engineers Restoring Ecosystems and Resilience</div>
+        <div class="article-meta">By Mariem Hassan • Ecology & Wildlife Engineering • November 15, 2025</div>
+      </div>
     </a>
   </div>
 
@@ -220,12 +297,9 @@
   <script>
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
-
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('open');
     });
   </script>
 </body>
 </html>
-
-
