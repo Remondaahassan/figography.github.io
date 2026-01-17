@@ -4,370 +4,419 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Magdi Yacoub Heart Foundation | Figeographie</title>
+
   <link rel="stylesheet" href="mobile.css">
 
- <!--favicon-->
-    <link rel="icon" type="image/png" href="articles_photos/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="articles_photos/favicon.svg" />
-<link rel="shortcut icon" href="articles_photos/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="articles_photos/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Figeographie" />
-<link rel="manifest" href="articles_photos/site.webmanifest" />
-<link rel="icon" type="image/png" href="articles_photos/web-app-manifest-192x192.png" sizes="192x192" />
-<link rel="icon" type="image/png" href="articles_photos/web-app-manifest-512x512.png" sizes="512x512" />
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="articles_photos/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="articles_photos/favicon.svg" />
+  <link rel="shortcut icon" href="articles_photos/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="articles_photos/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Figeographie" />
+  <link rel="manifest" href="articles_photos/site.webmanifest" />
 
-  <!-- Google Font: Nanum Myeongjo -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: 'Nanum Myeongjo', sans-serif;
-      background-color: #f4f6f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    /* ---------- HEADER ---------- */
-    header {
-      background: #ffffff;
-      border-bottom: 2px solid #e0e0e0;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* Logo left, nav right */
-    }
-
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #2c3e50;
-      font-family: 'Times New Roman', serif;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-
-    nav a:hover, nav a.active {
-      background: #e8f5e9;
-      color: #1b5e20;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #2c3e50;
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        background: #fff;
-        z-index: 999;
-        border-top: 1px solid #e0e0e0;
-      }
-
-      nav.open {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 0.75rem 1rem;
-      }
-
-      nav a {
-        display: block;
-        padding: 0.5rem;
-      }
-    }
-
-    /* ---------- MAIN CONTENT ---------- */
-    .content-box {
-      max-width: 850px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem 2.5rem;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      box-sizing: border-box;
-    }
-
-    .content-box h1, 
-    .content-box h2, 
-    .content-box h3 {
-      color: #1b5e20;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-      text-align: left;
-      font-family: 'Nanum Myeongjo', serif;
-    }
-
-    .banner {
-      width: 100%;
-      border-radius: 14px;
-    }
-
-    .image-wrap {
-      float: right;
-      margin: 0 0 1rem 1.5rem;
-      width: 40%;
-    }
-
-    .image-wrap img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    /* =====================================================
-       ✅ Donation Section
-       ===================================================== */
-    .donation-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .donation-section .donate-btn {
-      display: inline-block;
-      background: #2e7d32;
-      color: white;
-      padding: 0.75rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      text-align: center;
-      transition: background 0.3s, transform 0.2s;
-      width: auto;
-      max-width: 300px;
-    }
-
-    .donation-section .donate-btn:hover {
-      background: #1b5e20;
-      transform: translateY(-2px);
-    }
-
-  
-
-    /* =====================================================
-       ✅ MOBILE IMPROVEMENTS
-       ===================================================== */
-    @media (max-width: 768px) {
-
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        text-align: center;
-      }
-
-      main {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-
-      .content-box {
-        width: 95%;
-        margin: 1rem auto;
-        padding: 1.5rem 1rem;
-        text-align: left;
-        line-height: 1.6;
-      }
-
-      p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      ul, ol {
-        padding-left: 1.2rem;
-        margin-bottom: 1rem;
-        line-height: 1.5;
-      }
-
-      h2, h3 {
-        font-size: 1.3rem;
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      header {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      nav ul {
-        text-align: left;
-      }
-
-      /* Center donation section on mobile */
-      .donation-section {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-        margin: 2rem auto;
-        gap: 0.75rem;
-      }
-
-      .donation-section .donate-btn {
-        width: 90%;
-        max-width: 300px;
-        margin: 0 auto;
-        padding: 0.75rem 0;
-        display: block;
-      }
-
-      .donation-section .tax-caption {
-  color: #888;        /* light grey */
-  font-size: 0.9rem;  /* slightly smaller */
-  margin-top: 0.5rem; /* optional spacing */
+<style>
+/* ===================== BASE ===================== */
+body {
+  font-family: 'Nanum Myeongjo', serif;
+  background: linear-gradient(180deg, #f4f6f9, #eef2f3);
+  margin: 0;
+  color: #333;
+  line-height: 1.6;
 }
 
-      
-    }
-  </style>
+/* ===================== HEADER ===================== */
+header {
+  background: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-family: 'Times New Roman', serif;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  background: #e8f5e9;
+  color: #1b5e20;
+  transform: translateY(-2px);
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  nav { display: none; position: absolute; top: 70px; right: 0; width: 100%; background: white; }
+  nav.open { display: block; }
+  nav ul { flex-direction: column; padding: 1rem; }
+}
+
+/* ===================== CONTENT ===================== */
+.content-box {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* ===================== BANNER ===================== */
+.banner-wrapper {
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 2rem;
+}
+
+.banner {
+  width: 100%;
+  border-radius: 14px;
+  transform: none !important;
+}
+
+/* ===================== ANIMATIONS ===================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================== SLIDESHOW ===================== */
+.slideshow {
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.slide {
+  display: none;
+  padding: 1.6rem;
+  background: #f8faf9;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.slide.active {
+  display: block;
+  animation: fadeSlide 1s ease;
+}
+
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Navigation dots */
+.slideshow-dots {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  display: inline-block;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background-color: #2e7d32;
+}
+
+/* ===================== STATS ===================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: #f8faf9;
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* ===================== FUNDRAISING ===================== */
+.progress-wrapper {
+  margin: 2.5rem 0;
+}
+
+.progress-bar {
+  height: 16px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 1.8%;
+  background: linear-gradient(90deg, #2e7d32, #66bb6a);
+}
+
+.progress-label {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* ===================== DONATION ===================== */
+.donation-section {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.donate-btn {
+  display: inline-block;
+  background: #2e7d32;
+  color: white;
+  padding: 0.9rem 2.4rem;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  text-decoration: none;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(46,125,50,0.6); }
+  70% { box-shadow: 0 0 0 18px rgba(46,125,50,0); }
+  100% { box-shadow: 0 0 0 0 rgba(46,125,50,0); }
+}
+
+.tax-caption {
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 0.7rem;
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>Figeographie</h1>
-    <button class="hamburger" aria-label="Toggle navigation">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="charity.html" class="active">Magdi Yacoub Heart Foundation</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <div class="content-box">
-      <img src="articles_photos/MYA_logo_PMS@2x.png" alt="Magdi Yacoub Heart Foundation Banner" class="banner" />
+<header>
+  <h1>Figeographie</h1>
+  <button class="hamburger">☰</button>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="charity.html" class="active">Magdi Yacoub Heart Foundation</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-      <h2>The Magdi Yacoub Global Heart Foundation</h2>
-      <p>
-        The Magdi Yacoub Heart Foundation (MYF) – an Egyptian registered charity NGO – was founded in 2008 by Sir Magdi Yacoub, the late chemistry Nobel Prize 
-        winner Dr. Ahmed Zewail, and Ambassador Mohamed Shaker. MYF is running one of the exceptional projects of enormous significance to the health and wellbeing 
-        of the Egyptian people that is entirely based on donations. The foundation established the Aswan Heart Centre (AHC) in 2009, to provide free-of-charge, 
-        world-class cardiovascular care to patients, and is now expanding its services to by building The Magdi Yacoub Global Heart Foundation in Cairo, Egypt to expand
-        the Aswan Heart Centre model of care to the capital city. With the establishment of the Magdi Yacoub Global Heart Centre in Cairo, the foundation will be able 
-        to triple the service and the amount of hearts saved, all free-of-charge and with the latest technology and technique in cardiovascular medical care. 
-        MYGHC - Cairo will give the foundation the possibility to treat 12,000 patients, in contrast to 4,000 currently, and save more than three times as many lives.
-      </p>
+<main>
+<div class="content-box">
 
-      <h3>Here are some statistics from the Aswan Heart Centre:</h3>
-      <ul>
-        <li>The institution has a 4.5% mortality rate for open-heart surgery, compared to the global average of 8.3%. This statistic is on par with the best American and European hospitals.</li>
-        <li>An average of 49,000 outpatient consultations are provided annually, half of which are for children.</li>
-        <li>An average of 4,600 surgical procedures and catheterizations performed on patients annually.</li>
-        <li>An average of 350 healthcare professionals trained annually through the Foundation's training programs.</li>
-        <li>An average of 390,000 patients are seen and served at the Aswan Heart Centre each year.</li>
-      </ul>
+<div class="banner-wrapper">
+  <img src="articles_photos/MYA_logo_PMS@2x.png" class="banner" alt="Magdi Yacoub Heart Foundation Banner">
+</div>
 
-      <h3>Here are the goals of the new Magdi Yacoub Global Heart Centre in Cairo:</h3>
-      <ul> 
-        <li>Accomodate up to 120,000 outpatients annually.</li>
-        <li>Treat up to 12,000 patients annually.</li>
-        <li>Give neonates a 95% chance of living a normal life.</li>
-        <li>Triple the number of training graduates (from 550 currently to ~1750).</li>
-        <li>Develop an advanced scientific research center.</li>
-      </ul>
+<!-- 🔹 SLIDESHOW -->
+<div class="slideshow fade-in">
+  <div class="slide active">
+    Within Egypt, cardiovascular disease is the leading cause of death out of all non-communicable diseases, 
+    responsible for <b>275,665</b> deaths in 2021 alone. Risk factors associated with cardiovascular disease continue 
+    to rise at an alarming rate. Rheumatic heart diseases are still responsible for approximately 2,000 deaths 
+    per year and the death of <b>28%</b> Egyptian babies with congenital heart disease.
+  </div>
+  <div class="slide">
+    The Magdi Yacoub Heart Foundation (MYF) is an Egyptian registered charity founded in 2008 by Sir 
+    Magdi Yacoub, Nobel Prize winner Dr. Ahmed Zewail, and Ambassador Mohamed Shaker. <b>Fully funded by donations</b>, the 
+    foundation provides <b>free, world-class</b> cardiovascular care to patients in Egypt.
+  </div>
+  <div class="slide">
+    Figeographie is proud to support the Magdi Yacoub Heart Foundation in their mission to provide 
+    life-saving cardiac care to those in need. We are committed to raising <b>$10,000</b> to fund 
+    the <b>full cost of an open-heart surgical operation</b> at Aswan Heart Centre, 
+    where over 1,000 surgical operations are performed annually. Help Figeographie support this 
+    incredible cause by donating <b>$5 </b>today!
 
-      <h2>Why Helping Kids with Heart Disease Matters</h2>
-      <p>
-        Within Egypt, cardiovascular disease is the leading cause of death out of all non-communicable diseases, responsible for 275,665 deaths in 2021 alone. Risk factors associated 
-        with cardiovascular disease continue to rise at an alarming rate. Rheumatic heart diseases are still responsible for approximately 2,000 deaths per year and of the 18,000 babies born with congenital 
-        heart disease each year, 5,000 die due to the lack of proper facilities.
-      </p>
+  </div>
 
-      <h2>What Figeographie is Doing</h2>
-      <p>
-        Figeographie embodies the motto "Where Nature Meets Lens, Where Lens Meets Humanity" by photographing the world and writing blogs 
-        on our website about environmental subjects, ranging from pollution to healthcare. However, we also believe in taking action to help humanity directly.
-      </p>
-      <p>
-        To expand our impact on humanity, Figeographie is a strong supporter of the Magdi Yacoub Heart Foundation's efforts in making all aspects of treatment for 
-        congenital heart disease completely free for children in Egypt, the MENA region, and the GCC region. We are aiming to raise $10,000 to make this service a greater 
-        blessing to all children who face the hardship of low oxygen in the blood, too many or too few blood vessels, faulty heart valves, and other difficulties.
-      </p>
-      <p>
-        We believe that the treasure of beauty is not just in the sight of the eyes, but in the action of human beings. Help support this cause to spread the beauty 
-        of generosity to children in need of healthcare support.
-      </p>
+  <!-- navigation dots -->
+  <div class="slideshow-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
 
-      <h2>Donate Today!</h2>
-      <p>
-        All donations go directly to The Magdi Yacoub Global Heart Foundation. Your support can save lives and give children a chance at a healthy future.
-      </p>
-      <ul>
-        <li>Donating $100 covers the cost of an outpatient consultation and an echocardiogram study. Over 45,000 outpatients are served at Aswan Heart Centre annually.</li>
-        <li>Donating $500 covers the cost of one advanced noninvasive diagnostic imaging for a patient. Annually, Aswan Heart Centre performs over 4,000 CTs or MRIs on patients.</li>
-        <li>Donating $1,000 covers half the cost of in-hospital medications for a patient during their hospital stay. Aswan Heart Centre accommodates over 4,500 patients annually for hospital stays.</li>
-        <li>Donating $5,000 covers the cost of a catheter operation or half the cost of a surgical operation at Aswan Heart Centre, where over 3,000 catheter operations are performed annually.</li>
-        <li>Donating $10,000 covers the cost of an open-heart surgical operation at Aswan Heart Centre, where over 1,000 surgical operations are performed annually.</li>
-      </ul>
+<!-- STATS -->
+<div class="stats-grid fade-in">
+  <div class="stat-card"><div class="stat-number" data-target="4.5">0</div><p>% mortality rate</p></div>
+  <div class="stat-card"><div class="stat-number" data-target="49000">0</div><p>outpatient consultations annually</p></div>
+  <div class="stat-card"><div class="stat-number" data-target="4600">0</div><p>procedures annually</p></div>
+  <div class="stat-card"><div class="stat-number" data-target="390000">0</div><p>patients served annually</p></div>
+</div>
 
-      <!-- Donation Section -->
-      <div class="donation-section">
-        <a href="https://secure.givelively.org/donate/myaswan-inc/magdi-yacoub-global-heart-foundation-google-giving-program/remonda-hassan" target="_blank" class="donate-btn">Donate Now</a>
-        <p class = "tax-caption">
-          The Magdi Yacoub Global Heart Foundation is a US-based 501(c)(3) non-profit charity, and your donation can be claimed as a deduction on your US income tax return.
-        </p>
-      </div>
+<div class="progress-wrapper fade-in">
+  <div class="progress-bar"><div class="progress-fill"></div></div>
+  <div class="progress-label">$180 raised of $10,000 goal</div>
+</div>
 
-    </div>
-  </main>
+<div class="donation-section fade-in">
+  <a href="https://secure.givelively.org/donate/myaswan-inc/magdi-yacoub-global-heart-foundation-google-giving-program/remonda-hassan" target="_blank" class="donate-btn">Donate Now</a>
+  <p class="tax-caption">
+    The Magdi Yacoub Global Heart Foundation is a US-based 501(c)(3) non-profit charity, and your donation can be claimed as a deduction on your US income tax return.
+  </p>
+</div>
 
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
+</div>
+</main>
 
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+const header = document.querySelector('header');
+
+hamburger.onclick = () => nav.classList.toggle('open');
+
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* Fade-in observer */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* Stat numbers counter */
+document.querySelectorAll('.stat-number').forEach(counter => {
+  const update = () => {
+    const target = +counter.dataset.target;
+    const current = +counter.innerText;
+    const increment = target / 120;
+    if (current < target) {
+      counter.innerText = Math.ceil(current + increment);
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  update();
+});
+
+/* SLIDESHOW FUNCTIONALITY */
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slideshow .slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlides() {
+  slides.forEach(slide => slide.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+  slides[slideIndex-1].classList.add('active');
+  dots[slideIndex-1].classList.add('active');
+  setTimeout(showSlides, 5000);
+}
+showSlides();
+
+/* DOT CLICK NAVIGATION */
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+    slideIndex = i; // reset slideshow index
+  });
+});
+
+/* OPTIONAL: swipe support for mobile */
+let startX = 0;
+let endX = 0;
+const slideshow = document.querySelector('.slideshow');
+slideshow.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+slideshow.addEventListener('touchend', e => {
+  endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) showSlides(); // swipe left = next
+  if (endX - startX > 50) { // swipe right = prev
+    slideIndex -= 2; 
+    if (slideIndex < 0) slideIndex = slides.length - 1;
+    showSlides();
+  }
+});
+</script>
+
 </body>
 </html>
+
