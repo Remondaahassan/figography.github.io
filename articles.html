@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,8 +13,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="articles_photos/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Figeographie" />
   <link rel="manifest" href="articles_photos/site.webmanifest" />
-  <link rel="icon" type="image/png" href="articles_photos/web-app-manifest-192x192.png" sizes="192x192" />
-  <link rel="icon" type="image/png" href="articles_photos/web-app-manifest-512x512.png" sizes="512x512" />
 
   <!-- Google Font: Nanum Myeongjo -->
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
@@ -123,13 +121,50 @@
       font-family: 'Nanum Myeongjo', serif;
     }
 
+    /* ---------- FILTERS & SEARCH ---------- */
+    .filters {
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 900px;
+      margin: 20px auto 20px;
+      padding: 0 20px;
+    }
+
+    .filters input[type="text"],
+    .filters select,
+    .filters button {
+      font-family: 'Times New Roman', Times, serif;
+      padding: 0.5rem 0.8rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .filters button {
+      font-family: 'Times New Roman', Times, serif;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .filters button:hover {
+      font-family: 'Times New Roman', Times, serif;
+      background: #1b5e20;
+      transform: translateY(-2px);
+    }
+
     /* NYT-style article list */
     .article-grid {
       display: flex;
       flex-direction: column;
       gap: 40px;
       max-width: 900px;
-      margin: 40px auto;
+      margin: 0 auto 40px;
       padding: 0 20px;
     }
 
@@ -240,12 +275,33 @@
     <h1>Articles</h1>
   </div>
 
+  <!-- FILTERS & SEARCH BAR -->
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="Search articles...">
+    <select id="authorFilter">
+      <option value="">All Authors</option>
+      <option value="Remonda Hassan">Remonda Hassan</option>
+      <option value="Jadyn J.">Jadyn J.</option>
+      <option value="Mariem Hassan">Mariem Hassan</option>
+    </select>
+    <select id="subjectFilter">
+      <option value="">All Subjects</option>
+      <option value="Fashion">Fashion</option>
+      <option value="Environmental Ethics">Environmental Ethics</option>
+      <option value="Environmental Crisis Reporting">Environmental Crisis Reporting</option>
+      <option value="Tech">Tech</option>
+      <option value="Ecology">Ecology</option>
+      <option value="Politics">Politics</option>
+      <option value="Wildlife Engineering">Wildlife Engineering</option>
+    </select>
+    <button id="resetFilters">Reset Filters</button>
+  </div>
+
   <div class="article-grid">
-    <!-- Article 1 -->
-    <a href="articles/sustainable_fashion.html" class="article-card">
+    <!-- Article cards preserved exactly as before -->
+    <a href="articles/sustainable_fashion.html" class="article-card" data-author="Remonda Hassan" data-subject="Fashion,Environmental Ethics">
       <div class="image-container">
         <img src="articles_photos/clothing.jpeg" alt="Fast Fashion">
-        
       </div>
       <div class="article-text">
         <div class="article-title">How Your Clothes are Drinking Your Water</div>
@@ -253,8 +309,7 @@
       </div>
     </a>
 
-    <!-- Article 2 -->
-    <a href="articles/nile_pollution.html" class="article-card">
+    <a href="articles/nile_pollution.html" class="article-card" data-author="Remonda Hassan" data-subject="Environmental Crisis Reporting">
       <div class="image-container">
         <img src="articles_photos/nile_poll.jpg" alt="Nile River Pollution Crisis">
         <div class="image-credit">Photo: Marc Ryckaert</div>
@@ -265,8 +320,7 @@
       </div>
     </a>
 
-    <!-- Article 3 -->
-    <a href="articles/ecocide.html" class="article-card">
+    <a href="articles/ecocide.html" class="article-card" data-author="Jadyn J." data-subject="Tech,Environmental Ethics">
       <div class="image-container">
         <img src="articles_photos/tech.jpg" alt="Ecocide and AI">
         <div class="image-credit">Photo: Victorgrigas</div>
@@ -277,8 +331,7 @@
       </div>
     </a>
 
-    <!-- Article 4 -->
-    <a href="articles/beaver_dams.html" class="article-card">
+    <a href="articles/beaver_dams.html" class="article-card" data-author="Mariem Hassan" data-subject="Ecology,Wildlife Engineering">
       <div class="image-container">
         <img src="articles_photos/beaver_dam.jpg" alt="Beaver Dams">
         <div class="image-credit">Photo: Alex A.</div>
@@ -288,9 +341,8 @@
         <div class="article-meta">By Mariem Hassan • Ecology • Wildlife Engineering • November 15, 2025</div>
       </div>
     </a>
-  
-   <!-- Article 5 -->
-    <a href="articles/gaza_environment_crisis.html" class="article-card">
+
+    <a href="articles/gaza_environment_crisis.html" class="article-card" data-author="Remonda Hassan" data-subject="Politics,Environmental Ethics">
       <div class="image-container">
         <img src="articles_photos/sewage_gaza.jpg" alt="gaza_environment_crisis">
         <div class="image-credit">Photo: Ashraf Amra</div>
@@ -311,6 +363,47 @@
     const nav = document.querySelector('nav');
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('open');
+    });
+
+    // SEARCH & FILTER FUNCTIONALITY
+    const searchInput = document.getElementById('searchInput');
+    const authorFilter = document.getElementById('authorFilter');
+    const subjectFilter = document.getElementById('subjectFilter');
+    const resetBtn = document.getElementById('resetFilters');
+    const articles = document.querySelectorAll('.article-card');
+
+    function filterArticles() {
+      const searchText = searchInput.value.toLowerCase();
+      const authorText = authorFilter.value;
+      const subjectText = subjectFilter.value;
+
+      articles.forEach(article => {
+        const title = article.querySelector('.article-title').innerText.toLowerCase();
+        const author = article.dataset.author;
+        const subjects = article.dataset.subject.split(',');
+
+        let matchesSearch = title.includes(searchText);
+        let matchesAuthor = authorText === "" || author === authorText;
+        let matchesSubject = subjectText === "" || subjects.includes(subjectText);
+
+        if(matchesSearch && matchesAuthor && matchesSubject) {
+          article.style.display = "flex";
+        } else {
+          article.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', filterArticles);
+    authorFilter.addEventListener('change', filterArticles);
+    subjectFilter.addEventListener('change', filterArticles);
+
+    // RESET FILTERS BUTTON
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      authorFilter.value = '';
+      subjectFilter.value = '';
+      filterArticles();
     });
   </script>
 </body>
