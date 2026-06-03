@@ -1,31 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery | Figeographie</title>
+
   <link rel="stylesheet" href="mobile.css">
 
   <!-- Lightbox2 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
 
-  
-<!--favicon-->
-    <link rel="icon" type="image/png" href="articles_photos/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="articles_photos/favicon.svg" />
-<link rel="shortcut icon" href="articles_photos/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="articles_photos/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Figeographie" />
-<link rel="manifest" href="articles_photos/site.webmanifest" />
-<link rel="icon" type="image/png" href="articles_photos/web-app-manifest-192x192.png" sizes="192x192" />
-<link rel="icon" type="image/png" href="articles_photos/web-app-manifest-512x512.png" sizes="512x512" />
-
-  <!-- Google Font: Nanum Myeongjo -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
   <style>
     body {
-      font-family: 'Nanum Myeongjo';
+      font-family: 'Nanum Myeongjo', serif;
       background-color: #ffffff;
       margin: 0;
       padding: 0;
@@ -34,6 +25,7 @@
     }
 
     /* ---------- HEADER ---------- */
+
     header {
       background: #ffffff;
       border-bottom: 2px solid #e0e0e0;
@@ -43,12 +35,11 @@
       z-index: 1000;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Logo left, nav right */
+      justify-content: space-between;
     }
 
     header h1 {
       margin: 0;
-      font-weight: 700;
       font-size: 1.5rem;
       color: #2c3e50;
       font-family: 'Times New Roman', serif;
@@ -86,6 +77,89 @@
       color: #2c3e50;
     }
 
+    /* ---------- GALLERY ---------- */
+
+    main h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 30px 0;
+      color: #2c3e50;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 500px);
+      gap: 30px;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .category-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .img-container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover .img-container {
+      transform: scale(1.03);
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .category-header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+
+  text-align: center;
+  padding: 20px 0;
+
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+    footer {
+      text-align: center;
+      margin: 30px 0 15px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 1100px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .img-container {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+      }
+    }
+
     @media (max-width: 768px) {
       .hamburger {
         display: block;
@@ -97,8 +171,7 @@
         top: 70px;
         right: 0;
         width: 100%;
-        background: #fff;
-        z-index: 999;
+        background: white;
         border-top: 1px solid #e0e0e0;
       }
 
@@ -108,82 +181,33 @@
 
       nav ul {
         flex-direction: column;
-        gap: 0.75rem;
         padding: 0.75rem 1rem;
       }
-
-      nav a {
-        display: block;
-        padding: 0.5rem;
-      }
-    }
-
-    /* ---------- GALLERY ---------- */
-    main h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin: 30px 0;
-      color: #2c3e50;
-      font-family: 'Nanum Myeongjo', serif;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .img-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .img-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .watermark {
-      position: absolute;
-      bottom: 6px;
-      right: 8px;
-      font-size: 12px;
-      color: white;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 3px 6px;
-      border-radius: 3px;
-      font-family: sans-serif;
-      pointer-events: none;
-    }
-
-    footer {
-      text-align: center;
-      margin: 30px 0 15px;
-      font-size: 14px;
-      color: #666;
     }
 
     @media (max-width: 600px) {
       .img-container {
         width: 100%;
+        max-width: 350px;
         height: 250px;
+      }
+
+      .category-header {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 
 <body>
+
 <header>
   <h1>Figeographie</h1>
-  <button class="hamburger" aria-label="Toggle navigation">☰</button>
+
+  <button class="hamburger" aria-label="Toggle navigation">
+    ☰
+  </button>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -197,284 +221,45 @@
   </nav>
 </header>
 
-  
-  <main>
-      <h1>Gallery</h1>
+<main>
+  <h1>Gallery</h1>
 
-<div class="gallery">
+  <div class="gallery">
 
-   <!-- Landscapes & Water -->
-  <a href="kai_pedrosa/flowers_sunset.jpg" data-lightbox="gallery" data-title="Sunset of the Flowers — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/flowers_sunset.jpg" alt="Moss"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/sunset.jpg" data-lightbox="gallery" data-title="Sunset — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/sunset.jpg" alt="Sunset"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/water_sunset.png" data-lightbox="gallery" data-title="Sunset — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/water_sunset.png" alt="sunset"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/field_sunset.jpg" data-lightbox="gallery" data-title="Sunset — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/field_sunset.jpg" alt="sunset"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/geyser.jpg" data-lightbox="gallery" data-title="Geyser — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/geyser.jpg" alt="Geyser"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-   <a href="cate_wells/geyser.JPG" data-lightbox="gallery" data-title="Geyser — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/geyser.JPG" alt="Geyser"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/ocean.jpg" data-lightbox="gallery" data-title="Ocean — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/ocean.jpg" alt="Ocean"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-   <a href="cate_wells/Puerto Rico Beach.jpg" data-lightbox="gallery" data-title="Puerto Rico Beach — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Puerto Rico Beach.jpg" alt="Puerto Rico Beach"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Puerto Rico Sunset.jpg" data-lightbox="gallery" data-title="Puerto Rico Sunset — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Puerto Rico Sunset.jpg" alt="Puerto Rico Sunset"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/sky light.jpg" data-lightbox="gallery" data-title="Sky Light — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/sky light.jpg" alt="Sky Light"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/waves.jpg" data-lightbox="gallery" data-title="Waves — Photo by Hend Hassan">
-    <div class="img-container"><img src="remonda_hassan/waves.jpg" alt="Waves"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/sparkly_ocean.jpg" data-lightbox="gallery" data-title="Sparkly Ocean — Photo by Hend Hassan">
-    <div class="img-container"><img src="remonda_hassan/sparkly_ocean.jpg" alt="Sparkly Ocean"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-     <a href="deema/Resized_20250831_065514.JPEG" data-lightbox="gallery" data-title="Sylvester — Photo by Deema Abualsoud">
-    <div class="img-container"><img src="deema/Resized_20250831_065514.JPEG" alt="Los Angeles"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/los_angeles.jpg" data-lightbox="gallery" data-title="On the way back from Los Angeles — Photo by Remonda Hassan">
-    <div class="img-container"><img src="remonda_hassan/los_angeles.jpg" alt="Los Angeles"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/falls - Seneca Wattanapanich.jpg" data-lightbox="gallery" data-title="Falls — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/falls - Seneca Wattanapanich.jpg" alt="Falls"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-   <a href="cate_wells/Yosemite Rock Structure.jpg" data-lightbox="gallery" data-title="Yosemite Rock Structure — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Yosemite Rock Structure.jpg" alt="Yosemite Rock Structure"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-   <a href="cate_wells/Yosemite Waterfall.jpg" data-lightbox="gallery" data-title="Yosemite Waterfall — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Yosemite Waterfall.jpg" alt="Yosemite Waterfall"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Splashing.jpg" data-lightbox="gallery" data-title="Splashing — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Splashing.jpg" alt="Splashing"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Yosemite Mountain Reflection 1.jpg" data-lightbox="gallery" data-title="Mountain Reflection — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Yosemite Mountain Reflection 1.jpg" alt="Mountain Reflection"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Yosemite Mountain Reflection 2.jpg" data-lightbox="gallery" data-title="Yosemite Mountain — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Yosemite Mountain Reflection 2.jpg" alt="Yosemite Mountain"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/flower_field.JPG" data-lightbox="gallery" data-title="Flower Field — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/flower_field.JPG" alt="Flower Field"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  
+    <a href="plants.html" class="category-card">
+      <div class="img-container">
+        <img src="seneca_wattanapanich/mushrooms.jpg" alt="Plants">
+        <div class="category-header">Plants</div>
+      </div>
+    </a>
 
-  <!-- Nature & Plants -->
-  <a href="seneca_wattanapanich/grass.JPG" data-lightbox="gallery" data-title="Grass — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/grass.JPG" alt="grass"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-   <a href="remonda_hassan/bud.jpg" data-lightbox="gallery" data-title="Buds — Photo by Hend Hassan">
-    <div class="img-container"><img src="remonda_hassan/bud.jpg" alt="buds"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/buds.jpg" data-lightbox="gallery" data-title="Buds — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/buds.jpg" alt="bud"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/Flower2.JPG" data-lightbox="gallery" data-title="Purple Flower — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/Flower2.JPG" alt="Flower2"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/FluffyPlant1.JPG" data-lightbox="gallery" data-title="Fluffy Plant — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/FluffyPlant1.JPG" alt="Fluffy Plant"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-    <a href="kai_pedrosa/ShortPlant.JPG" data-lightbox="gallery" data-title="Twists and Braids — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/ShortPlant.JPG" alt="Twists and Braids"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Bee and Lavender.jpg" data-lightbox="gallery" data-title="Bee and Lavender — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Bee and Lavender.jpg" alt="Bee and Lavender"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/blue butterfly.JPG" data-lightbox="gallery" data-title="Blue Butterfly — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/blue butterfly.JPG" alt="blue butterfly"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/bee_white_flower.JPG" data-lightbox="gallery" data-title="Bee in Flower — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/bee_white_flower.JPG" alt="light_pink"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/white_rose.JPG" data-lightbox="gallery" data-title="Buzzing in a Rose — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/white_rose.JPG" alt="grass"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/neon_pink.JPG" data-lightbox="gallery" data-title="Spider Webs in Flower — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/neon_pink.JPG" alt="neon_pink"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/pink_rose.jpg" data-lightbox="gallery" data-title="Pink Rose — Photo by Remonda Hassan">
-    <div class="img-container"><img src="remonda_hassan/pink_rose.jpg" alt="pink rose"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/butterfly.jpg" data-lightbox="gallery" data-title="Butterfly — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/butterfly.jpg" alt="Butterfly"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/hydrangea purple.jpg" data-lightbox="gallery" data-title="Purple Hydrangea — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/hydrangea purple.jpg" alt="hydrangea purple"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/mixed_flowers.JPG" data-lightbox="gallery" data-title="Burst of Color — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/mixed_flowers.JPG" alt="mixed_flowers"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-   <a href="kai_pedrosa/sunflowers.JPG" data-lightbox="gallery" data-title="Sunflowers — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/sunflowers.JPG" alt="Sunflowers"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/orange_flower.JPG" data-lightbox="gallery" data-title="Orange Flower — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/orange_flower.JPG" alt="orange_flower"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/red_flowers.JPG" data-lightbox="gallery" data-title="Red Flowers — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/red_flowers.JPG" alt="red_flowers"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/orange_flowers.JPG" data-lightbox="gallery" data-title="Sunshine in Petals — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/orange_flowers.JPG" alt="orange_flowers"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/yellow_puffy.JPG" data-lightbox="gallery" data-title="Ray of Sunshine — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/yellow_puffy.JPG" alt="yellow_puffy"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/yellow.JPG" data-lightbox="gallery" data-title="Spikes of Sunshine — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/yellow.JPG" alt="yellow"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/yellow (1).jpg" data-lightbox="gallery" data-title="Curves of Gold — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/yellow (1).jpg" alt="yellow"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/pomegrante1.JPG" data-lightbox="gallery" data-title="Pomegranate — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/pomegrante1.JPG" alt="Pomegranate"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/swirls.JPG" data-lightbox="gallery" data-title="Swirls — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/swirls.JPG" alt="Swirls"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/hydrangea blue.jpg" data-lightbox="gallery" data-title="Blue Hydrangea — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/hydrangea blue.jpg" alt="hydrangea blue"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/aloe.JPG" data-lightbox="gallery" data-title="Aloe — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/aloe.JPG" alt="aloe"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/elephant ear.jpg" data-lightbox="gallery" data-title="Elephant Ear — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/elephant ear.jpg" alt="elephant ear"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/ladybug.jpg" data-lightbox="gallery" data-title="Ladybug — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/ladybug.jpg" alt="ladybug"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/ants.JPG" data-lightbox="gallery" data-title="Ants — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/ants.JPG" alt="ants"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/moss_kai.JPG" data-lightbox="gallery" data-title="Moss — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/moss_kai.JPG" alt="Moss"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/Arch_Plants.JPG" data-lightbox="gallery" data-title="Arch Plant — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/Arch_Plants.JPG" alt="Arch Plants"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/Tree_Reflect_Vert.JPG" data-lightbox="gallery" data-title="Reflection of the Tree — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/Tree_Reflect_Vert.JPG" alt="Tree Reflect"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/Reeds.JPG" data-lightbox="gallery" data-title="Reeds — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/Reeds.JPG" alt="Reeds"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/autumn_leaves.JPG" data-lightbox="gallery" data-title="Autumn Leaves — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/autumn_leaves.JPG" alt="Autumn Leaves"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/fall_leaves.jpg" data-lightbox="gallery" data-title="Fallen Leaf — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/fall_leaves.jpg" alt="Fallen Leaf"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/tree_kai.JPG" data-lightbox="gallery" data-title="Tree — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/tree_kai.JPG" alt="Tree"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/mushrooms.jpg" data-lightbox="gallery" data-title="Mushrooms — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/mushrooms.jpg" alt="Mushrooms"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/fallen_log.JPG" data-lightbox="gallery" data-title="Fallen Log — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/fallen_log.JPG" alt="log"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/LogLake.JPG" data-lightbox="gallery" data-title="Log Lake — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/LogLake.JPG" alt="log"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/river.JPG" data-lightbox="gallery" data-title="River — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/river.JPG" alt="river"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
- <a href="kai_pedrosa/BrightTree.JPG" data-lightbox="gallery" data-title="Bright Tree — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/BrightTree.JPG" alt="Bright Tree"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/TreeLake.JPG" data-lightbox="gallery" data-title="Tree Lake — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/TreeLake.JPG" alt="Tree Lake"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="kai_pedrosa/water_trees.JPEG" data-lightbox="gallery" data-title="River to Trees — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/water_trees.JPEG" alt="water_trees"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/path.jpg" data-lightbox="gallery" data-title="River to Trees — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/path.jpg" alt="path"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/fig_tree.jpg" data-lightbox="gallery" data-title="Fig Tree — Photo by Remonda Hassan">
-    <div class="img-container"><img src="remonda_hassan/fig_tree.jpg" alt="Fig Tree"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
+    <a href="animals.html" class="category-card">
+      <div class="img-container">
+        <img src="kai_pedrosa/bird.JPG" alt="Animals">
+        <div class="category-header">Animals</div>
+      </div>
+    </a>
 
-  <!-- Animals & Insects -->
-  <a href="kai_pedrosa/bird.JPG" data-lightbox="gallery" data-title="Hummingbird — Photo by Kai Pedrosa">
-    <div class="img-container"><img src="kai_pedrosa/bird.JPG" alt="Hummingbird"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="seneca_wattanapanich/hummingbird.jpg" data-lightbox="gallery" data-title="Hummingbird — Photo by Seneca Wattanapanich">
-    <div class="img-container"><img src="seneca_wattanapanich/hummingbird.jpg" alt="hummingbird"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/zibeba.jpg" data-lightbox="gallery" data-title="Zibeba — Photo by Remonda Hassan">
-    <div class="img-container"><img src="remonda_hassan/zibeba.jpg" alt="zibeba"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/goose.jpg" data-lightbox="gallery" data-title="Goose — Photo by Remonda Hassan">
-  <div class="img-container">
-    <img src="remonda_hassan/goose.jpg" alt="Goose" style="object-position: center top;">
-    <span class="watermark">© 2025 Figeographie</span>
+    <a href="landscapes.html" class="category-card">
+      <div class="img-container">
+        <img src="cate_wells/geyser.JPG" alt="Landscapes">
+        <div class="category-header">Landscapes</div>
+      </div>
+    </a>
+
+    <a href="structures.html" class="category-card">
+      <div class="img-container">
+        <img src="cate_wells/Antelope Canyon 5.jpg" alt="Structures">
+        <div class="category-header">Structures</div>
+      </div>
+    </a>
+
   </div>
-</a>
-  <a href="cate_wells/Puerto Rico Horse 1.jpg" data-lightbox="gallery" data-title="Puerto Rico Horse — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Puerto Rico Horse 1.jpg" alt="Horse 1"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Puerto Rico Mother and Child Horses.jpg" data-lightbox="gallery" data-title="Mother and Child Horses — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Puerto Rico Mother and Child Horses.jpg" alt="Mother and Child Horses"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-
-  <!-- Objects & Details -->
-  <a href="remonda_hassan/colored_fig.jpg" data-lightbox="gallery" data-title="Fig — Photo by Remonda Hassan">
-    <div class="img-container"><img src="remonda_hassan/colored_fig.jpg" alt="Fig"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="remonda_hassan/eggs.jpg" data-lightbox="gallery" data-title="Eggs in a Nest— Photo by Remonda Hassan">
-    <div class="img-container"><img src="remonda_hassan/eggs.jpg" alt="Eggs"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-
-  <!-- Travel & Architecture -->
-  <a href="cate_wells/Antelope Canyon 1.jpg" data-lightbox="gallery" data-title="Antelope Canyon — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Antelope Canyon 1.jpg" alt="Antelope Canyon"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Antelope Canyon 2.jpg" data-lightbox="gallery" data-title="Antelope Canyon — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Antelope Canyon 2.jpg" alt="Antelope Canyon"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Antelope Canyon 3.jpg" data-lightbox="gallery" data-title="Antelope Canyon — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Antelope Canyon 3.jpg" alt="Antelope Canyon"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Antelope Canyon 4.jpg" data-lightbox="gallery" data-title="Antelope Canyon — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Antelope Canyon 4.jpg" alt="Antelope Canyon"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Antelope Canyon 5.jpg" data-lightbox="gallery" data-title="Antelope Canyon — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Antelope Canyon 5.jpg" alt="Antelope Canyon"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Antelope Canyon 6.jpg" data-lightbox="gallery" data-title="Antelope Canyon — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Antelope Canyon 6.jpg" alt="Antelope Canyon"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/Antelope Canyon 7.jpg" data-lightbox="gallery" data-title="Antelope Canyon — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/Antelope Canyon 7.jpg" alt="Antelope Canyon"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-<a href="remonda_hassan/ggb.jpg" data-lightbox="gallery" data-title="Golden Gate Bridge — Photo by Hend Hassan">
-    <div class="img-container"><img src="remonda_hassan/ggb.jpg" alt="Golden Gate Bridge"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-  <a href="cate_wells/ggb.JPG" data-lightbox="gallery" data-title="Golden Gate Bridge — Photo by Cate Wells">
-    <div class="img-container"><img src="cate_wells/ggb.JPG" alt="Golden Gate Bridge"><span class="watermark">© 2025 Figeographie</span></div>
-  </a>
-</div>
-
-  <footer>
-    <p>© 2025 Figeographie. All rights reserved.</p>
-  </footer>
-
-  <!-- Lightbox2 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
-
 </main>
+
+<footer>
+  <p>© 2025 Figeographie. All rights reserved.</p>
+</footer>
 
 <script>
   const hamburger = document.querySelector('.hamburger');
@@ -485,6 +270,6 @@
   });
 </script>
 
-
 </body>
 </html>
+```

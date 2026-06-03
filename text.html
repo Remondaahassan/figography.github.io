@@ -1,191 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery | Figeographie</title>
-  <link rel="stylesheet" href="mobile.css">
 
-  <!-- Lightbox2 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+  <a href="cate_wells/field_sunset.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/field_sunset.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-  <!-- Google Font: Nanum Myeongjo -->
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <a href="seneca_wattanapanich/geyser.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="seneca_wattanapanich/geyser.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-  <style>
-    body {
-      font-family: 'Nanum Myeongjo';
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.6;
-    }
+  <a href="cate_wells/geyser.JPG" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/geyser.JPG">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-    /* ---------- HEADER ---------- */
-    header {
-      background: #ffffff;
-      border-bottom: 2px solid #e0e0e0;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* Logo left, nav right */
-    }
+  <a href="seneca_wattanapanich/ocean.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="seneca_wattanapanich/ocean.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #2c3e50;
-      font-family: 'Times New Roman', serif;
-    }
+     <a href="kai_pedrosa/flowers_sunset.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="kai_pedrosa/flowers_sunset.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
+  <a href="seneca_wattanapanich/sunset.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="seneca_wattanapanich/sunset.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-    nav a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
+  <a href="cate_wells/water_sunset.png" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/water_sunset.png">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-    nav a:hover,
-    nav a.active {
-      background: #e8f5e9;
-      color: #1b5e20;
-    }
+  <a href="cate_wells/Puerto Rico Beach.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/Puerto Rico Beach.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-    .hamburger {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #2c3e50;
-    }
+  <a href="cate_wells/Puerto Rico Sunset.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/Puerto Rico Sunset.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
 
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        background: #fff;
-        z-index: 999;
-        border-top: 1px solid #e0e0e0;
-      }
-
-      nav.open {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 0.75rem 1rem;
-      }
-
-      nav a {
-        display: block;
-        padding: 0.5rem;
-      }
-    }
-
-    /* ---------- GALLERY ---------- */
-    main h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin: 30px 0;
-      color: #2c3e50;
-      font-family: 'Nanum Myeongjo', serif;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .img-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .img-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .watermark {
-      position: absolute;
-      bottom: 6px;
-      right: 8px;
-      font-size: 12px;
-      color: white;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 3px 6px;
-      border-radius: 3px;
-      font-family: sans-serif;
-      pointer-events: none;
-    }
-
-    footer {
-      text-align: center;
-      margin: 30px 0 15px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    @media (max-width: 600px) {
-      .img-container {
-        width: 100%;
-        height: 250px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-<header>
-  <h1>Figeographie</h1>
-  <button class="hamburger" aria-label="Toggle navigation">☰</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="gallery.html" class="active">Gallery</a></li>
-      <li><a href="articles.html">Articles</a></li>
-      <li><a href="charity.html">Magdi Yacoub Heart Foundation</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="team.html">Our Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <h1>Gallery</h1>
+      <a href="cate_wells/Yosemite Waterfall.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/Yosemite Waterfall.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
   
+    <a href="cate_wells/Splashing.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/Splashing.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="cate_wells/Yosemite Mountain Reflection 1.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/Yosemite Mountain Reflection 1.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="cate_wells/Yosemite Mountain Reflection 2.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/Yosemite Mountain Reflection 2.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+      <a href="cate_wells/flower_field.JPG" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/flower_field.JPG">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="seneca_wattanapanich/sky light.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="seneca_wattanapanich/sky light.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="remonda_hassan/waves.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="remonda_hassan/waves.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="remonda_hassan/sparkly_ocean.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="remonda_hassan/sparkly_ocean.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="deema/Resized_20250831_065514.JPEG" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="deema/Resized_20250831_065514.JPEG">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="remonda_hassan/los_angeles.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="remonda_hassan/los_angeles.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="seneca_wattanapanich/falls - Seneca Wattanapanich.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="seneca_wattanapanich/falls - Seneca Wattanapanich.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>
+
+  <a href="cate_wells/Yosemite Rock Structure.jpg" data-lightbox="gallery"><div class="item">
+    <img loading="lazy" src="cate_wells/Yosemite Rock Structure.jpg">
+    <div class="watermark">© 2025 Figeographie</div></div></a>

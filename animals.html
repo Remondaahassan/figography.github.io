@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plants | Figeographie</title>
+
+<link rel="stylesheet" href="mobile.css">
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Nanum Myeongjo';
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: 'Times New Roman', serif;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+/* BACK BUTTON */
+.back-link {
+  position: fixed;
+  top: 90px;
+  left: 20px;
+  background: #eaeaea;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 2000;
+}
+
+/* MASONRY GALLERY */
+.gallery {
+  column-count: 3;
+  column-gap: 18px;
+  padding: 20px;
+}
+
+@media (max-width: 1000px) {
+  .gallery { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .gallery { column-count: 1; }
+}
+
+.gallery a {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 18px;
+  break-inside: avoid;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.25s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* WATERMARK */
+.watermark {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 12px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="gallery.html" class="back-link"> < See more photos</a>
+
+<header>
+  <h1>Figeographie</h1>
+</header>
+
+<main>
+<h1 style="text-align:center;">Animals</h1>
+
+<div class="gallery">
+
+<a href="kai_pedrosa/bird.JPG"
+   data-lightbox="animals"
+   data-title="Bird — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/bird.JPG" alt="bird">
+</a>
+
+<a href="cate_wells/Puerto Rico Horse 1.jpg"
+   data-lightbox="animals"
+   data-title="Horse in Puerto Rico — Photo by Cate Wells">
+  <img src="cate_wells/Puerto Rico Horse 1.jpg" alt="horse">
+</a>
+
+<a href="seneca_wattanapanich/hummingbird.jpg"
+   data-lightbox="animals"
+   data-title="Hummingbird — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/hummingbird.jpg" alt="hummingbird">
+</a>
+
+<a href="remonda_hassan/zibeba.jpg"
+   data-lightbox="animals"
+   data-title="Zibeba — Photo by Remonda Hassan">
+  <img src="remonda_hassan/zibeba.jpg" alt="animal">
+</a>
+
+<a href="remonda_hassan/goose.jpg"
+   data-lightbox="animals"
+   data-title="Goose — Photo by Remonda Hassan">
+  <img src="remonda_hassan/goose.jpg" alt="goose">
+</a>
+
+<a href="cate_wells/Puerto Rico Horse 2.jpg"
+   data-lightbox="animals"
+   data-title="Horse — Photo by Cate Wells">
+  <img src="cate_wells/Puerto Rico Horse 2.jpg" alt="horse">
+</a>
+
+<a href="seneca_wattanapanich/ladybug.jpg"
+   data-lightbox="animals"
+   data-title="Ladybug — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/ladybug.jpg" alt="ladybug">
+</a>
+
+<a href="remonda_hassan/eggs.jpg"
+   data-lightbox="animals"
+   data-title="Eggs — Photo by Remonda Hassan">
+  <img src="remonda_hassan/eggs.jpg" alt="eggs">
+</a>
+
+
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+
+</body>
+</html>

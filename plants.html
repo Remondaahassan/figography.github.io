@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plants | Figeographie</title>
+
+<link rel="stylesheet" href="mobile.css">
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Nanum Myeongjo';
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: 'Times New Roman', serif;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+/* BACK BUTTON */
+.back-link {
+  position: fixed;
+  top: 90px;
+  left: 20px;
+  background: #eaeaea;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 2000;
+}
+
+/* MASONRY GALLERY */
+.gallery {
+  column-count: 3;
+  column-gap: 18px;
+  padding: 20px;
+}
+
+@media (max-width: 1000px) {
+  .gallery { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .gallery { column-count: 1; }
+}
+
+.gallery a {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 18px;
+  break-inside: avoid;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.25s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* WATERMARK */
+.watermark {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 12px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="gallery.html" class="back-link"> < See more photos</a>
+
+<header>
+  <h1>Figeographie</h1>
+</header>
+
+<main>
+<h1 style="text-align:center;">Plants</h1>
+
+<div class="gallery">
+
+  
+  <a href="seneca_wattanapanich/grass.JPG"
+   data-lightbox="plants"
+   data-title="Grass — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/grass.JPG" alt="grass">
+</a>
+
+ <a href="seneca_wattanapanich/pink_ombre.JPG"
+   data-lightbox="plants"
+   data-title="Pink Ombre — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/pink_ombre.JPG" alt="pink ombre">
+</a>
+
+<a href="cate_wells/beaut.jpg"
+   data-lightbox="plants"
+   data-title="Beautifull Flower — Photo by Cate Wells">
+  <img src="cate_wells/beaut.jpg" alt="beautiful flower">
+</a>
+
+<a href="cate_wells/rose_sun.heic"
+   data-lightbox="plants"
+   data-title="Rose in the Sun — Photo by Cate Wells">
+  <img src="cate_wells/rose_sun.heic" alt="rose in the sun">
+</a>
+
+<a href="cate_wells/cotton.heic"
+   data-lightbox="plants"
+   data-title="Dandelions — Photo by Cate Wells">
+  <img src="cate_wells/cotton.heic" alt="cotton">
+</a>
+
+<a href="seneca_wattanapanich/red and white.JPG"
+   data-lightbox="plants"
+   data-title="Red and White Flowers — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/red and white.JPG" alt="red and white flowers">
+</a> 
+
+<a href="seneca_wattanapanich/orange_flower.JPG"
+   data-lightbox="plants"
+   data-title="Orange Flower — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/orange_flower.JPG" alt="orange flower">
+</a>
+
+<a href="seneca_wattanapanich/red_flowers.JPG"
+   data-lightbox="plants"
+   data-title="Red Flowers — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/red_flowers.JPG" alt="red flowers">
+</a>
+
+
+<a href="seneca_wattanapanich/almond_blossoms.JPG"
+   data-lightbox="plants"
+   data-title="Almond Blossoms — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/almond_blossoms.JPG" alt="almond blossoms">
+</a>
+
+
+<a href="seneca_wattanapanich/dandelion.JPG"
+   data-lightbox="plants"
+   data-title="Dandelion — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/dandelion.JPG" alt="red flowers">
+</a>
+
+<a href="seneca_wattanapanich/blossoms.JPG"
+   data-lightbox="plants"
+   data-title="Blossoms — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/blossoms.JPG" alt="blossoms">
+</a>
+
+<a href="seneca_wattanapanich/white_rose.JPG"
+   data-lightbox="plants"
+   data-title="White Rose — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/white_rose.JPG" alt="white rose">
+</a>
+
+<a href="seneca_wattanapanich/orange_flowers.JPG"
+   data-lightbox="plants"
+   data-title="Orange Flowers — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/orange_flowers.JPG" alt="orange flowers">
+</a>
+
+<a href="kai_pedrosa/christmas.JPG"
+   data-lightbox="plants"
+   data-title="Christmas Feeling — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/christmas.JPG" alt="christmas feeling">
+</a>
+
+<a href="seneca_wattanapanich/mixed_flowers.JPG"
+   data-lightbox="plants"
+   data-title="Mixed Flowers — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/mixed_flowers.JPG" alt="mixed flowers">
+</a>
+
+<a href="remonda_hassan/bud.jpg"
+   data-lightbox="plants"
+   data-title="Bud — Photo by Remonda Hassan">
+  <img src="remonda_hassan/bud.jpg" alt="bud">
+</a>
+
+<a href="seneca_wattanapanich/buds.jpg"
+   data-lightbox="plants"
+   data-title="Buds — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/buds.jpg" alt="buds">
+</a>
+
+<a href="kai_pedrosa/Flower2.JPG"
+   data-lightbox="plants"
+   data-title="Purple Flower — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/Flower2.JPG" alt="flower">
+</a>
+
+<a href="kai_pedrosa/snow1.JPG"
+   data-lightbox="plants"
+   data-title="Snow — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/snow1.JPG" alt="snow flower">
+</a>
+
+<a href="kai_pedrosa/FluffyPlant1.JPG"
+   data-lightbox="plants"
+   data-title="Fluffy Plant — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/FluffyPlant1.JPG" alt="fluffy plant">
+</a>
+
+<a href="kai_pedrosa/snow2.JPG"
+   data-lightbox="plants"
+   data-title="Snow — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/snow2.JPG" alt="snow flower">
+</a>
+
+<a href="kai_pedrosa/purple.jpeg"
+   data-lightbox="plants"
+   data-title="Purple — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/purple.jpeg" alt="purple">
+</a>
+
+<a href="kai_pedrosa/ShortPlant.JPG"
+   data-lightbox="plants"
+   data-title="Twists and Braids — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/ShortPlant.JPG" alt="plant">
+</a>
+
+<a href="cate_wells/Bee and Lavender.jpg"
+   data-lightbox="plants"
+   data-title="Bee and Lavender — Photo by Cate Wells">
+  <img src="cate_wells/Bee and Lavender.jpg" alt="bee and lavender">
+</a>
+
+<a href="seneca_wattanapanich/blue butterfly.JPG"
+   data-lightbox="plants"
+   data-title="Blue Butterfly — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/blue butterfly.JPG" alt="blue butterfly">
+</a>
+
+<a href="seneca_wattanapanich/bee_white_flower.JPG"
+   data-lightbox="plants"
+   data-title="Bee in White Flower — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/bee_white_flower.JPG" alt="bee flower">
+</a>
+
+<a href="seneca_wattanapanich/white_rose.JPG"
+   data-lightbox="plants"
+   data-title="White Rose — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/white_rose.JPG" alt="white rose">
+</a>
+
+<a href="seneca_wattanapanich/neon_pink.JPG"
+   data-lightbox="plants"
+   data-title="Neon Pink Flower — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/neon_pink.JPG" alt="neon pink">
+</a>
+
+<a href="remonda_hassan/pink_rose.jpg"
+   data-lightbox="plants"
+   data-title="Pink Rose — Photo by Remonda Hassan">
+  <img src="remonda_hassan/pink_rose.jpg" alt="pink rose">
+</a>
+
+<a href="kai_pedrosa/butterfly.jpg"
+   data-lightbox="plants"
+   data-title="Butterfly — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/butterfly.jpg" alt="butterfly">
+</a>
+
+<a href="seneca_wattanapanich/hydrangea purple.jpg"
+   data-lightbox="plants"
+   data-title="Purple Hydrangea — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/hydrangea purple.jpg" alt="hydrangea">
+</a>
+
+<a href="seneca_wattanapanich/mixed_flowers.JPG"
+   data-lightbox="plants"
+   data-title="Mixed Flowers — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/mixed_flowers.JPG" alt="mixed flowers">
+</a>
+
+<a href="kai_pedrosa/sunflowers.JPG"
+   data-lightbox="plants"
+   data-title="Sunflowers — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/sunflowers.JPG" alt="sunflowers">
+</a>
+
+<a href="kai_pedrosa/shoot.JPG"
+   data-lightbox="plants"
+   data-title="Shoot — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/shoot.JPG" alt="shoot">
+</a>
+
+
+
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Landscapes | Figeographie</title>
+
+<link rel="stylesheet" href="mobile.css">
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Nanum Myeongjo';
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: 'Times New Roman', serif;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+/* BACK BUTTON */
+.back-link {
+  position: fixed;
+  top: 90px;
+  left: 20px;
+  background: #eaeaea;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 2000;
+}
+
+/* MASONRY GALLERY */
+.gallery {
+  column-count: 3;
+  column-gap: 18px;
+  padding: 20px;
+}
+
+@media (max-width: 1000px) {
+  .gallery { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .gallery { column-count: 1; }
+}
+
+.gallery a {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 18px;
+  break-inside: avoid;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.25s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* WATERMARK */
+.watermark {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 12px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="gallery.html" class="back-link"> < See more photos</a>
+
+<header>
+  <h1>Figeographie</h1>
+</header>
+
+<main>
+<h1 style="text-align:center;">Landscapes</h1>
+
+<div class="gallery">
+
+<a href="cate_wells/field_sunset.jpg" data-lightbox="Landscapes" data-title="Field Sunset — Photo by Cate Wells">
+  <img src="cate_wells/field_sunset.jpg" alt="Field Sunset">
+</a>
+
+<a href="seneca_wattanapanich/geyser.jpg" data-lightbox="Landscapes" data-title="Geyser — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/geyser.jpg" alt="Geyser">
+</a>
+
+<a href="cate_wells/geyser.JPG" data-lightbox="Landscapes" data-title="Geyser — Photo by Cate Wells">
+  <img src="cate_wells/geyser.JPG" alt="Geyser">
+</a>
+
+<a href="seneca_wattanapanich/ocean.jpg" data-lightbox="Landscapes" data-title="Ocean — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/ocean.jpg" alt="Ocean">
+</a>
+
+<a href="kai_pedrosa/flowers_sunset.jpg" data-lightbox="Landscapes" data-title="Sunset Flowers — Photo by Kai Pedrosa">
+  <img src="kai_pedrosa/flowers_sunset.jpg" alt="Sunset Flowers">
+</a>
+
+<a href="seneca_wattanapanich/sunset.jpg" data-lightbox="Landscapes" data-title="Sunset — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/sunset.jpg" alt="Sunset">
+</a>
+
+<a href="cate_wells/water_sunset.png" data-lightbox="Landscapes" data-title="Water Sunset — Photo by Cate Wells">
+  <img src="cate_wells/water_sunset.png" alt="Water Sunset">
+</a>
+
+<a href="cate_wells/Puerto Rico Beach.jpg" data-lightbox="Landscapes" data-title="Puerto Rico Beach — Photo by Cate Wells">
+  <img src="cate_wells/Puerto Rico Beach.jpg" alt="Puerto Rico Beach">
+</a>
+
+<a href="cate_wells/Puerto Rico Sunset.jpg" data-lightbox="Landscapes" data-title="Puerto Rico Sunset — Photo by Cate Wells">
+  <img src="cate_wells/Puerto Rico Sunset.jpg" alt="Puerto Rico Sunset">
+</a>
+
+<a href="cate_wells/Yosemite Waterfall.jpg" data-lightbox="Landscapes" data-title="Yosemite Waterfall — Photo by Cate Wells">
+  <img src="cate_wells/Yosemite Waterfall.jpg" alt="Yosemite Waterfall">
+</a>
+
+<a href="cate_wells/Splashing.jpg" data-lightbox="Landscapes" data-title="Splashing Water — Photo by Cate Wells">
+  <img src="cate_wells/Splashing.jpg" alt="Splashing Water">
+</a>
+
+<a href="cate_wells/Yosemite Mountain Reflection 1.jpg" data-lightbox="Landscapes" data-title="Yosemite Mountain Reflection — Photo by Cate Wells">
+  <img src="cate_wells/Yosemite Mountain Reflection 1.jpg" alt="Yosemite Reflection 1">
+</a>
+
+<a href="kai_pedrosa/bay.jpg" data-lightbox="Landscapes" data-title="Yosemite Mountain Reflection — Photo by Cate Wells">
+  <img src="kai_pedrosa/bay.jpg" alt="Yosemite Reflection 1">
+</a>
+
+<a href="cate_wells/Yosemite Mountain Reflection 2.jpg" data-lightbox="Landscapes" data-title="Yosemite Mountain Reflection — Photo by Cate Wells">
+  <img src="cate_wells/Yosemite Mountain Reflection 2.jpg" alt="Yosemite Reflection 2">
+</a>
+
+<a href="cate_wells/flower_field.JPG" data-lightbox="Landscapes" data-title="Flower Field — Photo by Cate Wells">
+  <img src="cate_wells/flower_field.JPG" alt="Flower Field">
+</a>
+
+<a href="seneca_wattanapanich/sky light.jpg" data-lightbox="Landscapes" data-title="Sky Light — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/sky light.jpg" alt="Sky Light">
+</a>
+
+<a href="cate_wells/water.jpg" data-lightbox="Landscapes" data-title="Waterfall — Photo by Cate Wells">
+  <img src="cate_wells/water.jpg" alt="Waterfall">
+</a>
+
+<a href="cate_wells/clouds_water.jpg" data-lightbox="Landscapes" data-title="Waterfall — Photo by Cate Wells">
+  <img src="cate_wells/clouds_water.jpg" alt="Waterfall">
+</a>
+
+<a href="cate_wells/pumpkin.jpg" data-lightbox="Landscapes" data-title="Pumpkin — Photo by Cate Wells">
+  <img src="cate_wells/pumpkin.jpg" alt="Pumpkin">
+</a>
+
+<a href="remonda_hassan/waves.jpg" data-lightbox="Landscapes" data-title="Waves — Photo by Remonda Hassan">
+  <img src="remonda_hassan/waves.jpg" alt="Waves">
+</a>
+
+<a href="remonda_hassan/sparkly_ocean.jpg" data-lightbox="Landscapes" data-title="Sparkly Ocean — Photo by Remonda Hassan">
+  <img src="remonda_hassan/sparkly_ocean.jpg" alt="Sparkly Ocean">
+</a>
+
+<a href="deema/Resized_20250831_065514.JPEG" data-lightbox="Landscapes" data-title="Ocean Scene — Photo by Deema">
+  <img src="deema/Resized_20250831_065514.JPEG" alt="Ocean Scene">
+</a>
+
+<a href="remonda_hassan/los_angeles.jpg" data-lightbox="Landscapes" data-title="Los Angeles — Photo by Remonda Hassan">
+  <img src="remonda_hassan/los_angeles.jpg" alt="Los Angeles">
+</a>
+
+<a href="seneca_wattanapanich/falls - Seneca Wattanapanich.jpg" data-lightbox="Landscapes" data-title="Waterfall — Photo by Seneca Wattanapanich">
+  <img src="seneca_wattanapanich/falls - Seneca Wattanapanich.jpg" alt="Waterfall">
+</a>
+
+<a href="cate_wells/Yosemite Rock Structure.jpg" data-lightbox="Landscapes" data-title="Yosemite Rock Structure — Photo by Cate Wells">
+  <img src="cate_wells/Yosemite Rock Structure.jpg" alt="Yosemite Rock Structure">
+</a>
+
+
+
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+
+</body>
+</html>
